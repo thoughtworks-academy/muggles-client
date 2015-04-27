@@ -17,6 +17,7 @@ System.config({
   "map": {
     "babel": "npm:babel@4.7.16",
     "babel-runtime": "npm:babel-runtime@4.7.16",
+    "xiaoyanzhuzzh/Semantic-UI": "github:xiaoyanzhuzzh/Semantic-UI@master",
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.1"
     },

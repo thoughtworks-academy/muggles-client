@@ -1,6 +1,9 @@
 {
   "jspm": {
     "directories": {},
+    "dependencies": {
+      "xiaoyanzhuzzh/Semantic-UI": "github:xiaoyanzhuzzh/Semantic-UI@master"
+    },
     "devDependencies": {
       "babel": "npm:babel@^4.7.16",
       "babel-runtime": "npm:babel-runtime@^4.7.16"
