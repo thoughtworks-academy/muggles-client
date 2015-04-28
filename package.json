@@ -9,7 +9,7 @@
       "babel-runtime": "npm:babel-runtime@^4.7.16"
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.8.11"
   }
 }
