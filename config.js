@@ -16,9 +16,13 @@ System.config({
 System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.3.15",
+    "angular-route": "github:angular/bower-angular-route@1.3.15",
     "babel": "npm:babel@4.7.16",
     "babel-runtime": "npm:babel-runtime@4.7.16",
     "xiaoyanzhuzzh/Semantic-UI": "github:xiaoyanzhuzzh/Semantic-UI@master",
+    "github:angular/bower-angular-route@1.3.15": {
+      "angular": "github:angular/bower-angular@1.3.15"
+    },
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.1"
     },

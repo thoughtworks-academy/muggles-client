@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    meta(name="description" content="")
+    meta(name="viewport" content="width=device-width")
+    script(src = "/jspm_packages/system.js")
+    script(src="config.js")
+    script.
+      System.import("scripts/app.js")
+  body(ng-app="Muggles")
+    p.
+      hello muggles
+    .content(ng-view="")
