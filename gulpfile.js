@@ -8,11 +8,18 @@ var reload = browserSync.reload;
 
 var connect = require('gulp-connect');
 
-gulp.task('jade_compiler', function(){
+gulp.task('index_jade_compiler', function() {
 
-  return gulp.src('index.jade')
+  return gulp.src('app/index.jade')
     .pipe($.jade())
-    .pipe(gulp.dest('.tmp'))
+    .pipe(gulp.dest('.tmp/'))
+});
+
+gulp.task('jade_compiler', ['index_jade_compiler'], function(){
+
+  return gulp.src('app/views/*.jade')
+    .pipe($.jade())
+    .pipe(gulp.dest('.tmp/views'))
 });
 
 gulp.task('serve', ['jade_compiler'], function () {

@@ -5,15 +5,14 @@ import angular from 'angular'
 import ngRoute from 'angular-route'
 
 angular
-  .module('Muggles', [
-    'ngRoute'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: '../views/main.html'
-      })
-      .otherwise({
+  .module('Muggles', ['ngRoute'])
+  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: '.tmp/views/main.html'
+      }).
+      otherwise({
         redirectTo: '/'
       })
-  })
+    $locationProvider.html5Mode(true);
+  }])
