@@ -6,7 +6,7 @@
       .ui.header#register-header 欢迎注册Muggles
       .field
         label 姓名
-        input#user-name(placeholder="姓名" type="text")
+        input#user-name(placeholder="姓名" type="text" ng-model="student_name" value="{{student_name}}")
       .field
         label 邮箱
         input#email(placeholder="邮箱" type="email")
