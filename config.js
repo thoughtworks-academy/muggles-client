@@ -19,6 +19,7 @@ System.config({
     "angular-route": "github:angular/bower-angular-route@1.3.15",
     "babel": "npm:babel@4.7.16",
     "babel-runtime": "npm:babel-runtime@4.7.16",
+    "jquery": "github:components/jquery@2.1.3",
     "xiaoyanzhuzzh/Semantic-UI": "github:xiaoyanzhuzzh/Semantic-UI@master",
     "github:angular/bower-angular-route@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"

@@ -8,7 +8,7 @@ angular
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: '.tmp/views/main.html'
+        templateUrl: '.tmp/views/register.html'
       }).
       otherwise({
         redirectTo: '/'

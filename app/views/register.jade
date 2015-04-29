@@ -1,0 +1,43 @@
+.ui.grid
+  .ten.wide.column 等你好久啦！
+  .four.wide.column
+    .ui.form.segment
+      .ui.header#register-header 欢迎注册Muggles
+      .field
+        label 姓名
+        input#user-name(placeholder="姓名" type="text")
+      .field
+        label 邮箱
+        input#email(placeholder="邮箱" type="email")
+      .field
+        .grouped.inline.fields
+          .field
+            label 性别
+          .field
+            .ui.radio.checkbox
+              input(type="radio" name="fruit")
+              label 男
+          .field
+            .ui.radio.checkbox
+              input(type="radio" name="fruit")
+              label 女
+      .field
+        label 密码
+        input#password(placeholder="密码" type="password")
+      .field
+        label 重复密码
+        input#repeat-password(placeholder="重复密码" type="password")
+      .field
+        label 手机号
+        input#phone-number(placeholder="手机号" type="text")
+      .field#button-field
+        .ui.positive.reset.button#reset-button 注册
+        .ui.negative.submit.button#submit-button 返回登录
+      .ui.second.small.coupled.modal.transition.hidden#registermodal
+        .header 注册成功
+        .content
+          .description
+            .p 系统已经向该邮箱发送了一封验证激活邮件
+              .p 请查收邮件,进行验证激活！
+        .actions
+          a.primary.ui.button.confirm 确定

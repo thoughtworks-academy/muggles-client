@@ -4,11 +4,15 @@ html
     meta(name="description" content="")
     base(href="/")
     meta(name="viewport" content="width=device-width")
+    link(rel="stylesheet" type="text/css" href="/jspm_packages/github/xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.css")
+    link(rel="stylesheet" type="text/css" href="styles/index.css")
+    link(rel="stylesheet" type="text/css" href="styles/login.css")
     script(src="jspm_packages/system.js")
     script(src="config.js")
     script.
       System.import("../app/scripts/app")
   body(ng-app="Muggles")
-    p.
-      hello muggles
+    .ui.grid
+      .sixteen.wide.column
+        img#myLogo(src="../app/images/logo.png")
     .content(ng-view="")
