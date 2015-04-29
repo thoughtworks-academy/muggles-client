@@ -1,16 +1,13 @@
 'use strict';
 
 class RegisterService {
-  constructor($http){
-    this.$http = $http
+  constructor(){
+    this.name = 'hahha'
   }
 
   getUsers(){
-    return this.$http.get('https://api.github.com/users').then(result => result.data)
+    return this.name
   }
-
 }
-
-RegisterService.$inject = ['$http'];
 
 export { RegisterService }

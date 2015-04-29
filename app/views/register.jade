@@ -1,4 +1,4 @@
-.ui.grid#register-grid
+.ui.grid#register-grid(ng-controller="registerController")
   .ten.wide.column#welcome-column
    span#Welcome-message 等你好久啦！
   .four.wide.column
@@ -36,7 +36,7 @@
         label 验证码
         input#verification-code(placeholder="验证码" type="text")
       .field#button-field
-        .ui.positive.reset.button#reset-button 注册
+        .ui.positive.reset.button#reset-button(ng-click="show_student_name()") 注册
         .ui.negative.submit.button#submit-button 返回登录
       .ui.second.small.coupled.modal.transition.hidden#registermodal
         .header 注册成功

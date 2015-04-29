@@ -1,21 +1,16 @@
 'use strict';
 
-import RegisterService from '../services/register-service'
-
 class RegisterController {
-  constructor(RegisterService) {
-    this.RegisterService = RegisterService;
-    this.init();
+  constructor($scope) {
+    this.$scope = $scope;
   }
 
-  init(){
-    this.RegisterService.getUsers().then(users => {
-      this.users = users;
-      console.log(users);
-    });
+  show_student_name() {
+    console.log('kakkkakk')
   }
 }
 
-RegisterController.$inject = ['RegisterService'];
+RegisterController.$inject = ['$scope'];
+
 
 export { RegisterController }
