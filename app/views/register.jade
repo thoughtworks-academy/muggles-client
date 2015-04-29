@@ -1,5 +1,6 @@
-.ui.grid
-  .ten.wide.column 等你好久啦！
+.ui.grid#register-grid
+  .ten.wide.column#welcome-column
+   span#Welcome-message 等你好久啦！
   .four.wide.column
     .ui.form.segment
       .ui.header#register-header 欢迎注册Muggles
@@ -14,12 +15,10 @@
           .field
             label 性别
           .field
-            .ui.radio.checkbox
-              input(type="radio" name="fruit")
+              input(type="radio" name="fruit" value="男")
               label 男
           .field
-            .ui.radio.checkbox
-              input(type="radio" name="fruit")
+              input(type="radio" name="fruit" value="女")
               label 女
       .field
         label 密码
