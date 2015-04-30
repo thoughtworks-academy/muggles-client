@@ -1,24 +1,29 @@
 'use strict';
 
+const EMAIL_REQUIRED_TIP = '邮箱不能为空';
+const EMAIL_ERROR_TIP = '请输入正确的邮箱格式';
+
 class RegisterController {
 
   constructor(userService) {
 
     this.userService = userService;
-  }
-
-  change_user_name(name) {
-
-    console.log(name)
+    this.email_required_signal = false;
+    this.email_error_signal = false;
   }
 
   change_user_email(email) {
 
-    if(!this.userService.verify_email(email)) {
+    if(email === '') {
 
-      console.log('jaaaaaaaaaaaaaa')
+      this.email_error_signal = false;
+    } else if(!this.userService.verify_email(email)) {
+
+      this.email_error_tip = EMAIL_ERROR_TIP;
+      this.email_error_signal = true;
     } else {
-      console.log('success')
+
+      this.email_error_signal = false;
     }
   }
 
@@ -26,7 +31,7 @@ class RegisterController {
 
     if(!this.userService.verify_password(password)) {
 
-      console.log('failed');
+      console.log(EMAIL_ERROR_TIP);
     } else {
 
     console.log('success')
