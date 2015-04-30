@@ -5,25 +5,25 @@
     .ui.form.segment
       .ui.header#register-header 欢迎注册Muggles
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label#field-name 姓名
+            label.field-name 姓名
           .field
             input#user-name(placeholder="姓名" type="text" ng-model="vm.user.name" value="{{vm.user.name}}" ng-change="vm.change_user_name(vm.user.name)")
         .tips
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label#field-name 邮箱
+            label.field-name 邮箱
           .field
             input#email(placeholder="邮箱" type="text" ng-model="vm.user.email" value="{{vm.user.email}}" ng-change="vm.change_user_email(vm.user.email)")
         .tips
           span.tip(ng-show="vm.email_required_signal") {{vm.email_required_tip}}
           span.tip(ng-show="vm.email_error_signal") {{vm.email_error_tip}}
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label#field-name 性别
+            label.field-name 性别
           .field
               input(type="radio" name="fruit" value="男")
               label 男
@@ -32,37 +32,37 @@
               label 女
         .tips
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label#field-name 密码
+            label.field-name 密码
           .field
             input#password(placeholder="密码" type="password" ng-model="vm.user.password" value="{{vm.user.password}}" ng-change="vm.change_user_password(vm.user.password)")
         .tips
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
             label 重复密码
           .field
             input#repeat-password(placeholder="重复密码" type="password" ng-model="vm.user.repeat_password" value="{{vm.user.repeat_password}}" ng-change="vm.change_user_repeat_password(vm.user.password, vm.user.repeat_password)")
         .tips
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label#three-field-name 手机号
+            label.three-field-name 手机号
           .field
             input#phone-number(placeholder="手机号" type="text" ng-model="vm.user.phone_number" value="{{vm.user.phone_number}}" ng-change="vm.change_user_phone_number(vm.user.phone_number)")
         .tips
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label#three-field-name 邀请码
+            label.three-field-name 邀请码
           .field
             input#invitation-code(placeholder="邀请码" type="text")
         .tips
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label#three-field-name 验证码
+            label.three-field-name 验证码
           .field
             input#verification-code(placeholder="验证码" type="text")
         .tips
