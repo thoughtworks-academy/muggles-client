@@ -2,20 +2,20 @@
   .ten.wide.column
     span#welcome-message 欢迎登陆Muggles
   .six.wide.column
-    .ui.large.header Sign In
-    .ui.form
-        .field
-          label 邮箱
-          input(placeholder="邮箱",type="text")
-        .field
-          label 密码
-          input(placeholder="密码",type="password")
-        .field
-          .grouped.inline.fields
-            .field
-              input(type="radio" name="role")
-              label 学生
-            .field
-              input(type="radio" name="role")
-              label 教师
-        .ui.submit.button 登录
+    .ui.form.segment.login
+      .ui.h3.header.large 登录Muggles
+      .field
+        label 邮箱
+        input(placeholder="邮箱",type="text")
+      .field
+        label 密码
+        input(placeholder="密码",type="password")
+      .field
+        .grouped.inline.fields
+          .field
+            input(type="radio" name="role")
+            label 学生
+          .field
+            input(type="radio" name="role")
+            label 教师
+      .ui.submit.button.login-button 登录
