@@ -1,16 +1,15 @@
 'use strict';
 
 class RegisterController {
-  constructor($scope) {
-    this.$scope = $scope;
+
+  constructor() {
+
   }
 
-  show_student_name() {
-    console.log('kakkkakk')
+  change_user_name(user_name) {
+
+    console.log(user_name)
   }
 }
-
-RegisterController.$inject = ['$scope'];
-
 
 export { RegisterController }

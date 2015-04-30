@@ -1,4 +1,4 @@
-.ui.grid#register-grid(ng-controller="registerController")
+.ui.grid#register-grid(ng-controller="registerController as vm")
   .ten.wide.column#welcome-column
    span#Welcome-message 等你好久啦！
   .four.wide.column
@@ -6,7 +6,7 @@
       .ui.header#register-header 欢迎注册Muggles
       .field
         label 姓名
-        input#user-name(placeholder="姓名" type="text" ng-model="student_name" value="{{student_name}}")
+        input#user-name(placeholder="姓名" type="text" ng-model="vm.user_name" value="{{vm.user_name}}" ng-change="vm.change_user_name(vm.user_name)")
       .field
         label 邮箱
         input#email(placeholder="邮箱" type="email")
@@ -36,7 +36,7 @@
         label 验证码
         input#verification-code(placeholder="验证码" type="text")
       .field#button-field
-        .ui.positive.reset.button#reset-button(ng-click="show_student_name()") 注册
+        .ui.positive.reset.button#reset-button(ng-click="vm.show_student_name()") 注册
         .ui.negative.submit.button#submit-button 返回登录
       .ui.second.small.coupled.modal.transition.hidden#registermodal
         .header 注册成功
