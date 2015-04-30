@@ -4,7 +4,6 @@ import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
 import { RegisterController } from './controllers/register-controller'
-import { RegisterService } from './services/register-service'
 
 
 angular
@@ -12,7 +11,6 @@ angular
     'ngRoute'
   ])
   .controller('registerController', RegisterController)
-  .service('registerService', RegisterService)
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
