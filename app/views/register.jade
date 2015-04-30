@@ -9,7 +9,7 @@
         input#user-name(placeholder="姓名" type="text" ng-model="vm.user_name" value="{{vm.user_name}}" ng-change="vm.change_user_name(vm.user_name)")
       .field
         label 邮箱
-        input#email(placeholder="邮箱" type="email")
+        input#email(placeholder="邮箱" type="text" ng-model="vm.user_email" value="{{vm.user_email}}" ng-change="vm.change_user_email(vm.user_email)")
       .field
         .grouped.inline.fields
           .field
@@ -22,7 +22,7 @@
               label 女
       .field
         label 密码
-        input#password(placeholder="密码" type="password")
+        input#password(placeholder="密码" type="password" ng-model="vm.user_password" value="{{vm.user_password}}" ng-change="vm.change_user_password(vm.user_password)")
       .field
         label 重复密码
         input#repeat-password(placeholder="重复密码" type="password")

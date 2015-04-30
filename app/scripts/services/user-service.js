@@ -20,6 +20,19 @@ class UserService {
 
     return result;
   }
+
+  verify_password(password) {
+
+    let result = true;
+    let password_regular = /^(\w){6,20}$/;
+
+    if(!password_regular.exec(password)){
+
+      result = false
+    }
+
+    return result;
+  }
 }
 
 UserService.$inject = ['$http'];

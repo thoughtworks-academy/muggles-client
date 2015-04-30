@@ -3,6 +3,8 @@ import jquery from 'jquery'
 import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
+
+import { UserService } from './services/user-service'
 import { RegisterController } from './controllers/register-controller'
 
 
@@ -10,6 +12,7 @@ angular
   .module('Muggles', [
     'ngRoute'
   ])
+  .service('userService', UserService)
   .controller('registerController', RegisterController)
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
