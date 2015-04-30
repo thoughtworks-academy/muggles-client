@@ -7,14 +7,14 @@ class RegisterController {
     this.userService = userService;
   }
 
-  change_user_name(user_name) {
+  change_user_name(name) {
 
-    console.log(user_name)
+    console.log(name)
   }
 
-  change_user_email(user_email) {
+  change_user_email(email) {
 
-    if(!this.userService.verify_email(user_email)) {
+    if(!this.userService.verify_email(email)) {
 
       console.log('jaaaaaaaaaaaaaa')
     } else {
@@ -22,9 +22,9 @@ class RegisterController {
     }
   }
 
-  change_user_password(user_password) {
+  change_user_password(password) {
 
-    if(!this.userService.verify_password(user_password)) {
+    if(!this.userService.verify_password(password)) {
 
       console.log('failed');
     } else {
@@ -32,6 +32,17 @@ class RegisterController {
     console.log('success')
     }
   }
+
+  change_user_repeat_password(password, repeat_password) {
+
+    if(!this.userService.verify_repeat_password(password, repeat_password)) {
+
+      console.log('not equal')
+    } else {
+      console.log('equal');
+    }
+  }
+
 }
 
 RegisterController.$inject = ['userService'];

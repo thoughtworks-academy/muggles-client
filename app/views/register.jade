@@ -6,10 +6,10 @@
       .ui.header#register-header 欢迎注册Muggles
       .field
         label 姓名
-        input#user-name(placeholder="姓名" type="text" ng-model="vm.user_name" value="{{vm.user_name}}" ng-change="vm.change_user_name(vm.user_name)")
+        input#user-name(placeholder="姓名" type="text" ng-model="vm.user.name" value="{{vm.user.name}}" ng-change="vm.change_user_name(vm.user.name)")
       .field
         label 邮箱
-        input#email(placeholder="邮箱" type="text" ng-model="vm.user_email" value="{{vm.user_email}}" ng-change="vm.change_user_email(vm.user_email)")
+        input#email(placeholder="邮箱" type="text" ng-model="vm.user.email" value="{{vm.user.email}}" ng-change="vm.change_user_email(vm.user.email)")
       .field
         .grouped.inline.fields
           .field
@@ -22,13 +22,13 @@
               label 女
       .field
         label 密码
-        input#password(placeholder="密码" type="password" ng-model="vm.user_password" value="{{vm.user_password}}" ng-change="vm.change_user_password(vm.user_password)")
+        input#password(placeholder="密码" type="password" ng-model="vm.user.password" value="{{vm.user.password}}" ng-change="vm.change_user_password(vm.user.password)")
       .field
         label 重复密码
-        input#repeat-password(placeholder="重复密码" type="password")
+        input#repeat-password(placeholder="重复密码" type="password" ng-model="vm.user.repeat_password" value="{{vm.user.repeat_password}}" ng-change="vm.change_user_repeat_password(vm.user.password, vm.user.repeat_password)")
       .field
         label 手机号
-        input#phone-number(placeholder="手机号" type="text")
+        input#phone-number(placeholder="手机号" type="text" ng-model="vm.user.phone_number" value="{{vm.user.phone_number}}" ng-change="vm.change_user_phone_number(vm.user.phone_number)")
       .field
         label 邀请码
         input#invitation-code(placeholder="邀请码" type="text")

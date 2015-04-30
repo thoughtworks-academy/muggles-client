@@ -33,6 +33,18 @@ class UserService {
 
     return result;
   }
+
+  verify_repeat_password(password, repeat_password) {
+
+    let result = true;
+
+    if(repeat_password !== password){
+
+      result = false
+    }
+
+    return result;
+  }
 }
 
 UserService.$inject = ['$http'];
