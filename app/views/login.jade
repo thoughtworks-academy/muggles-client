@@ -2,20 +2,20 @@
   .ten.wide.column
     span#welcome-message 欢迎登陆Muggles
   .six.wide.column
-    .ui.form.segment.login
-      .ui.h3.header.large 登录Muggles
+    .ui.form.segment.login(ng-controller='loginController')
+      h3.ui.header.large 登录Muggles
       .field
         label 邮箱
-        input(placeholder="邮箱",type="text")
+        input(placeholder="邮箱", ng-model="user.email", type="text")
       .field
         label 密码
-        input(placeholder="密码",type="password")
+        input(placeholder="密码",ng-model="user.password", type="password")
       .field
-        .grouped.inline.fields
+        .grouped.inline.fields(ng-model="user.role")
           .field
-            input(type="radio" name="role")
+            input(type="radio" name="role" value="trainee")
             label 学生
           .field
-            input(type="radio" name="role")
+            input(type="radio" name="role" value="trainer")
             label 教师
-      .ui.submit.button.login-button 登录
+      .ui.submit.button.login-button(ng-click="login()") 登录
