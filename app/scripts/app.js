@@ -1,8 +1,9 @@
 'use strict';
-import angular from 'angular'
-import ngRoute from 'angular-route'
+
 import jquery from 'jquery'
 import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
+import angular from 'angular'
+import ngRoute from 'angular-route'
 
 angular
   .module('Muggles', ['ngRoute'])
@@ -17,5 +18,5 @@ angular
       otherwise({
         redirectTo: '/'
       });
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
   }]);
