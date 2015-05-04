@@ -9,7 +9,8 @@ angular
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: '.tmp/views/login.html'
+        templateUrl: '.tmp/views/login.html',
+        controller: 'loginController'
       }).
       when('/register', {
         templateUrl: '.tmp/views/register.html'
