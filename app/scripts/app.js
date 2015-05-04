@@ -1,8 +1,8 @@
 'use strict';
-import jquery from 'jquery'
-import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
+import jquery from 'jquery'
+import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 
 angular
   .module('Muggles', ['ngRoute'])
