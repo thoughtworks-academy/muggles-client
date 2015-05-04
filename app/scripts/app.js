@@ -15,6 +15,9 @@ angular
       when('/register', {
         templateUrl: '.tmp/views/register.html'
       }).
+      when('/trainer/home', {
+        templateUrl: '.tmp/views/trainer/home.html'
+      });
       otherwise({
         redirectTo: '/'
       });
