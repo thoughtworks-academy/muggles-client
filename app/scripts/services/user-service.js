@@ -45,6 +45,7 @@ class UserService {
 
     return result;
   }
+
 }
 
 UserService.$inject = ['$http'];

@@ -11,19 +11,27 @@ class RegisterController {
   constructor(userService) {
 
     this.userService = userService;
+
+    this.email_required_signal = false;
+    this.email_required_tip = EMAIL_REQUIRED_TIP;
+    this.email_error_signal = false;
+    this.email_error_tip = EMAIL_ERROR_TIP;
+
   }
 
     change_user_email(email) {
 
     if(email === '') {
 
+      this.email_required_signal = true;
       this.email_error_signal = false;
     } else if(!this.userService.verify_email(email)) {
 
-      this.email_error_tip = EMAIL_ERROR_TIP;
+      this.email_required_signal = false;
       this.email_error_signal = true;
     } else {
 
+      this.email_required_signal = false;
       this.email_error_signal = false;
     }
   }
@@ -55,7 +63,12 @@ class RegisterController {
     }
   }
 
+
+  submit_register_information(user) {
+    console.log(user)
+  }
 }
+
 
 RegisterController.$inject = ['userService'];
 
