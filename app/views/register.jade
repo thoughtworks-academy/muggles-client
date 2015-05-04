@@ -38,6 +38,8 @@
           .field
             input#password(placeholder="密码" type="password" ng-model="vm.user.password" value="{{vm.user.password}}" ng-change="vm.change_user_password(vm.user.password)")
         .tips
+          span.tip(ng-show="vm.password_required_signal") {{vm.password_required_tip}}
+          span.tip(ng-show="vm.password_error_signal") {{vm.password_error_tip}}
       .field
         .grouped.inline.fields.inline-fields
           .field
@@ -45,6 +47,7 @@
           .field
             input#repeat-password(placeholder="重复密码" type="password" ng-model="vm.user.repeat_password" value="{{vm.user.repeat_password}}" ng-change="vm.change_user_repeat_password(vm.user.password, vm.user.repeat_password)")
         .tips
+          span.tip(ng-show="vm.repeat_password_error_signal") {{vm.repeat_password_error_tip}}
       .field
         .grouped.inline.fields.inline-fields
           .field
@@ -52,6 +55,7 @@
           .field
             input#phone-number(placeholder="手机号" type="text" ng-model="vm.user.phone_number" value="{{vm.user.phone_number}}" ng-change="vm.change_user_phone_number(vm.user.phone_number)")
         .tips
+          span.tip(ng-show="vm.phone_required_signal") {{vm.phone_required_tip}}
       .field
         .grouped.inline.fields.inline-fields
           .field

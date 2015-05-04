@@ -37,7 +37,7 @@ gulp.task('serve', ['less_compiler', 'jade_compiler'], function() {
   ]).on('change', reload);
 
   gulp.watch('./app/views/**/*.jade', ['jade_compiler']);
-  gulp.watch('./app/styles/**/*.less', ['jade_compiler'])
+  gulp.watch('./app/styles/**/*.less', ['less_compiler'])
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
