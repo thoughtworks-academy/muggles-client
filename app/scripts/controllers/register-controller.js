@@ -36,11 +36,13 @@ class RegisterController {
     this.password_required_tip = PASSWORD_REQUIRED_TIP;
     this.passsword_error_signal = false;
     this.password_error_tip = PASSWORD_ERROR_TIP;
+    this.password_correct_signal = false;
 
     this.repeat_password_required_signal = false;
     this.repeat_password_required_tip = REPEAT_PASSWORD_REQUIRED_TIP;
     this.repeat_passsword_error_signal = false;
     this.repeat_password_error_tip = REPEAT_PASSWORD_ERROR_TIP;
+    this.repeat_password_correct_signal = false;
 
     this.phone_number_required_signal = false;
     this.phone_number_required_tip = PHONE_NUMBER_REQUIRED_TIP;
@@ -92,15 +94,18 @@ class RegisterController {
 
       this.password_required_signal = true;
       this.password_error_signal = false;
+      this.password_correct_signal = false;
     } else if(!this.userService.verify_password(password)) {
 
       this.password_required_signal = false;
       this.password_error_signal = true;
-
+      this.password_correct_signal = false;
     } else {
 
       this.password_required_signal = false;
       this.password_error_signal = false;
+      this.password_correct_signal = true;
+
     }
   }
 
@@ -110,18 +115,24 @@ class RegisterController {
 
       this.repeat_password_required_signal = true;
       this.repeat_password_error_signal = false;
+      this.repeat_password_correct_signal = false;
     } else if(!this.userService.verify_repeat_password(password, repeat_password)) {
 
       this.repeat_password_required_signal = false;
       this.repeat_password_error_signal = true;
-
+      this.repeat_password_correct_signal = false;
     } else {
 
       this.repeat_password_required_signal = false;
       this.repeat_password_error_signal = false;
+      this.repeat_password_correct_signal = true;
     }
   }
 
+  create_verification_code() {
+
+    this.verification_code = this.userService.create_verification_code();
+  }
 
   submit_register_information(user) {
     console.log(user);

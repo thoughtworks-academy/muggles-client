@@ -47,6 +47,8 @@
         .tips
           span.tip(ng-show="vm.password_required_signal") {{vm.password_required_tip}}
           span.tip(ng-show="vm.password_error_signal") {{vm.password_error_tip}}
+          span.tip(ng-show="vm.password_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
         .grouped.inline.fields.inline-fields
           .field
@@ -56,6 +58,8 @@
         .tips
           span.tip(ng-show="vm.repeat_password_required_signal") {{vm.repeat_password_required_tip}}
           span.tip(ng-show="vm.repeat_password_error_signal") {{vm.repeat_password_error_tip}}
+          span.tip(ng-show="vm.repeat_password_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
         .grouped.inline.fields.inline-fields
           .field
@@ -76,7 +80,9 @@
           .field
             label.three-field-name 验证码
           .field
-            input#verification-code(placeholder="验证码" type="text")
+            input#input-verification-code(placeholder="验证码" type="text")
+          .field
+            input#verification-code(type="text" value="{{vm.verification_code}}" data-ng-init="vm.create_verification_code()")
         .tips
       .field#button-field
         .ui.positive.reset.button#reset-button(ng-click="vm.submit_register_information(vm.user)") 注册
