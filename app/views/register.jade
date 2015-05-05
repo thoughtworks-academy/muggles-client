@@ -1,48 +1,97 @@
-.ui.grid#register-grid
+.ui.grid#register-grid(ng-controller="registerController")
   .ten.wide.column#welcome-column
    span#Welcome-message 等你好久啦！
   .four.wide.column
     .ui.form.segment
       .ui.header#register-header 欢迎注册Muggles
       .field
-        label 姓名
-        input#user-name(placeholder="姓名" type="text")
-      .field
-        label 邮箱
-        input#email(placeholder="邮箱" type="email")
-      .field
-        .grouped.inline.fields
+        .grouped.inline.fields.inline-fields
           .field
-            label 性别
+            label.field-name 姓名
           .field
-              input(type="radio" name="fruit" value="男")
+            input#user-name(placeholder="姓名" type="text" ng-model="vm.user.name" value="{{vm.user.name}}" ng-change="vm.change_user_name(vm.user.name)")
+        .tips
+          span.tip(ng-show="vm.name_required_signal") {{vm.name_required_tip}}
+          span.tip(ng-show="vm.name_error_signal") {{vm.name_error_tip}}
+          span.tip(ng-show="vm.name_correct_signal")
+            i.checkmark.icon.correct-icon
+      .field
+        .grouped.inline.fields.inline-fields
+          .field
+            label.field-name 邮箱
+          .field
+            input#email(placeholder="邮箱" type="text" ng-model="vm.user.email" value="{{vm.user.email}}" ng-change="vm.change_user_email(vm.user.email)")
+        .tips
+          span.tip(ng-show="vm.email_required_signal") {{vm.email_required_tip}}
+          span.tip(ng-show="vm.email_error_signal") {{vm.email_error_tip}}
+          span.tip(ng-show="vm.email_correct_signal")
+            i.checkmark.icon.correct-icon
+      .field
+        .grouped.inline.fields.inline-fields
+          .field
+            label.field-name 性别
+          .field
+              input(type="radio" name="fruit" value="男" checked="true")
               label 男
           .field
               input(type="radio" name="fruit" value="女")
               label 女
+        .tips
+          span.tip(ng-show="vm.gender_required_signal") {{vm.gender_required_tip}}
       .field
-        label 密码
-        input#password(placeholder="密码" type="password")
+        .grouped.inline.fields.inline-fields
+          .field
+            label.field-name 密码
+          .field
+            input#password(placeholder="密码" type="password" ng-model="vm.user.password" value="{{vm.user.password}}" ng-change="vm.change_user_password(vm.user.password)")
+        .tips
+          span.tip(ng-show="vm.password_required_signal") {{vm.password_required_tip}}
+          span.tip(ng-show="vm.password_error_signal") {{vm.password_error_tip}}
+          span.tip(ng-show="vm.password_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
-        label 重复密码
-        input#repeat-password(placeholder="重复密码" type="password")
+        .grouped.inline.fields.inline-fields
+          .field
+            label 重复密码
+          .field
+            input#repeat-password(placeholder="重复密码" type="password" ng-model="vm.user.repeat_password" value="{{vm.user.repeat_password}}" ng-change="vm.change_user_repeat_password(vm.user.password, vm.user.repeat_password)")
+        .tips
+          span.tip(ng-show="vm.repeat_password_required_signal") {{vm.repeat_password_required_tip}}
+          span.tip(ng-show="vm.repeat_password_error_signal") {{vm.repeat_password_error_tip}}
+          span.tip(ng-show="vm.repeat_password_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
-        label 手机号
-        input#phone-number(placeholder="手机号" type="text")
+        .grouped.inline.fields.inline-fields
+          .field
+            label.three-field-name 手机号
+          .field
+            input#phone-number(placeholder="手机号" type="text" ng-model="vm.user.phone_number" value="{{vm.user.phone_number}}" ng-change="vm.change_user_phone_number(vm.user.phone_number)")
+        .tips
+          span.tip(ng-show="vm.phone_number_required_signal") {{vm.phone_number_required_tip}}
       .field
-        label 邀请码
-        input#invitation-code(placeholder="邀请码" type="text")
-      .filed
-        label 验证码
-        input#verification-code(placeholder="验证码" type="text")
+        .grouped.inline.fields.inline-fields
+          .field
+            label.three-field-name 邀请码
+          .field
+            input#invitation-code(placeholder="邀请码" type="text" value="{{vm.invitation_code}}" ng-model="vm.invitation_code" ng-change="vm.validate_invitation_code(vm.invitation_code)")
+        .tips
+          span.tip(ng-show="vm.invitation_code_required_signal") {{vm.invitation_code_required_tip}}
+          span.tip(ng-show="vm.invitation_code_error_signal") {{vm.invitation_code_error_tip}}
+          span.tip(ng-show="vm.invitation_code_correct_signal")
+            i.checkmark.icon.correct-icon
+      .field
+        .grouped.inline.fields.inline-fields
+          .field
+            label.three-field-name 验证码
+          .field
+            input#input-verification-code(placeholder="验证码" type="text" value="{{vm.input_code}}" ng-model="vm.input_code" ng-change="vm.validate_verification_code(vm.input_code, vm.verification_code)")
+          .field
+            input#verification-code(type="button" value="{{vm.verification_code}}" data-ng-init="vm.create_verification_code()")
+        .tips
+          span.tip(ng-show="vm.verification_code_required_signal") {{vm.verification_code_required_tip}}
+          span.tip(ng-show="vm.verification_code_error_signal") {{vm.verification_code_error_tip}}
+          span.tip(ng-show="vm.verification_code_correct_signal")
+            i.checkmark.icon.correct-icon
       .field#button-field
-        .ui.positive.reset.button#reset-button 注册
+        .ui.positive.reset.button#reset-button(ng-click="vm.submit_register_information(vm.user)") 注册
         .ui.negative.submit.button#submit-button 返回登录
-      .ui.second.small.coupled.modal.transition.hidden#registermodal
-        .header 注册成功
-        .content
-          .description
-            .p 系统已经向该邮箱发送了一封验证激活邮件
-              .p 请查收邮件,进行验证激活！
-        .actions
-          a.primary.ui.button.confirm 确定
