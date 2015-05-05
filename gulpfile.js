@@ -63,5 +63,4 @@ gulp.task('connect', function() {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-// Start the tasks
-gulp.task('default', ['connect']);
+gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
