@@ -13,11 +13,11 @@
         input(placeholder="密码",ng-model="vm.user.password", type="password" ng-change="vm.check_password(vm.user.password)")
         .ui.pointing.label(ng-show="vm.password_required_signal") {{vm.password_is_required}}
       .field
-        .grouped.inline.fields(ng-model="vm.user.role")
+        .grouped.inline.fields
           .field
-            input(type="radio" name="role" value="trainee")
+            input(type="radio" ng-model="vm.user.role" value="trainee" ng-checked="true")
             label 学生
           .field
-            input(type="radio" name="role" value="trainer")
+            input(type="radio" ng-model="vm.user.role" value="trainer")
             label 教师
-      .ui.submit.button.login-button(ng-click="vm.login()") 登录
+      .ui.submit.button.login-button(ng-click="vm.login(vm.user)") 登录
