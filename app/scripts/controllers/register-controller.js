@@ -14,6 +14,9 @@ const REPEAT_PASSWORD_ERROR_TIP = '重复密码需与密码一致';
 
 const PHONE_NUMBER_REQUIRED_TIP = '手机号不能为空';
 
+const VERIFICATION_CODE_REQUIRED_TIP = '验证码不能为空';
+const VERIFICATION_CODE_ERROR_TIP = '验证码输入错误，请重新输入';
+
 class RegisterController {
 
   constructor(userService) {
@@ -46,6 +49,12 @@ class RegisterController {
 
     this.phone_number_required_signal = false;
     this.phone_number_required_tip = PHONE_NUMBER_REQUIRED_TIP;
+
+    this.verification_code_required_signal = false;
+    this.verification_code_required_tip = VERIFICATION_CODE_REQUIRED_TIP;
+    this.verification_code_error_signal = false;
+    this.verification_code_error_tip = VERIFICATION_CODE_ERROR_TIP;
+    this.verification_code_correct_signal = false;
   }
 
     change_user_name(name) {
@@ -105,7 +114,6 @@ class RegisterController {
       this.password_required_signal = false;
       this.password_error_signal = false;
       this.password_correct_signal = true;
-
     }
   }
 
@@ -132,6 +140,26 @@ class RegisterController {
   create_verification_code() {
 
     this.verification_code = this.userService.create_verification_code();
+  }
+
+  validate_verification_code(input_code, verification_code) {
+
+    if(input_code === '') {
+
+      this.verification_code_required_signal = true;
+      this.verification_code_error_signal = false;
+      this.verification_code_correct_signal = false;
+    } else if(input_code !== verification_code) {
+
+      this.verification_code_required_signal = false;
+      this.verification_code_error_signal = true;
+      this.verification_code_correct_signal = false;
+    } else {
+
+      this.verification_code_required_signal = false;
+      this.verification_code_error_signal = false;
+      this.verification_code_correct_signal = true;
+    }
   }
 
   submit_register_information(user) {
