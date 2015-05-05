@@ -29,10 +29,10 @@ class loginController {
         }
     }
 
-    login() {
+    login(user) {
+        console.log(this.user.role);
         console.log('login...');
     }
 }
 
-loginController.$inject = ['$scope'];
 export { loginController };
