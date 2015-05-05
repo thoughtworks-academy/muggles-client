@@ -21,7 +21,8 @@ angular
       }).
       when('/register', {
         templateUrl: '.tmp/views/register.html',
-        controller: 'registerController'
+        controller: 'registerController',
+        controllerAs: 'vm'
       }).
       otherwise({
         redirectTo: '/'

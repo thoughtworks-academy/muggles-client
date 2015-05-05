@@ -1,4 +1,4 @@
-.ui.grid#register-grid(ng-controller="registerController as vm")
+.ui.grid#register-grid(ng-controller="registerController")
   .ten.wide.column#welcome-column
    span#Welcome-message 等你好久啦！
   .four.wide.column
@@ -11,6 +11,10 @@
           .field
             input#user-name(placeholder="姓名" type="text" ng-model="vm.user.name" value="{{vm.user.name}}" ng-change="vm.change_user_name(vm.user.name)")
         .tips
+          span.tip(ng-show="vm.name_required_signal") {{vm.name_required_tip}}
+          span.tip(ng-show="vm.name_error_signal") {{vm.name_error_tip}}
+          span.tip(ng-show="vm.name_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
         .grouped.inline.fields.inline-fields
           .field
@@ -31,6 +35,7 @@
               input(type="radio" name="fruit" value="女")
               label 女
         .tips
+          span.tip(ng-show="vm.gender_required_signal") {{vm.gender_required_tip}}
       .field
         .grouped.inline.fields.inline-fields
           .field
@@ -47,6 +52,7 @@
           .field
             input#repeat-password(placeholder="重复密码" type="password" ng-model="vm.user.repeat_password" value="{{vm.user.repeat_password}}" ng-change="vm.change_user_repeat_password(vm.user.password, vm.user.repeat_password)")
         .tips
+          span.tip(ng-show="vm.repeat_password_required_signal") {{vm.repeat_password_required_tip}}
           span.tip(ng-show="vm.repeat_password_error_signal") {{vm.repeat_password_error_tip}}
       .field
         .grouped.inline.fields.inline-fields
@@ -55,7 +61,7 @@
           .field
             input#phone-number(placeholder="手机号" type="text" ng-model="vm.user.phone_number" value="{{vm.user.phone_number}}" ng-change="vm.change_user_phone_number(vm.user.phone_number)")
         .tips
-          span.tip(ng-show="vm.phone_required_signal") {{vm.phone_required_tip}}
+          span.tip(ng-show="vm.phone_number_required_signal") {{vm.phone_number_required_tip}}
       .field
         .grouped.inline.fields.inline-fields
           .field

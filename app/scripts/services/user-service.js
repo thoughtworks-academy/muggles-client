@@ -8,6 +8,19 @@ class UserService {
     this.$http = $http
   }
 
+  verify_name(name) {
+
+    let result = true;
+    let name_regular =  /^[\u4e00-\u9fa5]+$/i;
+
+    if(!name_regular.exec(name)){
+
+      result = false
+    }
+
+    return result;
+  }
+
   verify_email(email) {
 
     let result = true;
