@@ -2,7 +2,7 @@
 
 class home_controller {
   constructor() {
-
+    console.log('hello angularJS');
   }
 
 ;
