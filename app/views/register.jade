@@ -24,12 +24,14 @@
         .tips
           span.tip(ng-show="vm.email_required_signal") {{vm.email_required_tip}}
           span.tip(ng-show="vm.email_error_signal") {{vm.email_error_tip}}
+          span.tip(ng-show="vm.email_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
         .grouped.inline.fields.inline-fields
           .field
             label.field-name 性别
           .field
-              input(type="radio" name="fruit" value="男")
+              input(type="radio" name="fruit" value="男" checked="true")
               label 男
           .field
               input(type="radio" name="fruit" value="女")

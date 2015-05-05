@@ -6,10 +6,8 @@ const NAME_ERROR_TIP = '姓名必须为中文';
 const EMAIL_REQUIRED_TIP = '邮箱不能为空';
 const EMAIL_ERROR_TIP = '请输入正确的邮箱格式';
 
-const GENDER_REQUIRED_TIP = '性别不能为空';
-
 const PASSWORD_REQUIRED_TIP = '密码不能为空';
-const PASSWORD_ERROR_TIP = '密码至少为6-20位字节';
+const PASSWORD_ERROR_TIP = '密码至少为6位字节';
 
 const REPEAT_PASSWORD_REQUIRED_TIP = '重复密码不能为空';
 const REPEAT_PASSWORD_ERROR_TIP = '重复密码需与密码一致';
@@ -32,9 +30,7 @@ class RegisterController {
     this.email_required_tip = EMAIL_REQUIRED_TIP;
     this.email_error_signal = false;
     this.email_error_tip = EMAIL_ERROR_TIP;
-
-    this.gender_required_signal = false;
-    this.gender_required_tip = GENDER_REQUIRED_TIP;
+    this.email_correct_signal = false;
 
     this.password_required_signal = false;
     this.password_required_tip = PASSWORD_REQUIRED_TIP;
@@ -76,14 +72,17 @@ class RegisterController {
 
       this.email_required_signal = true;
       this.email_error_signal = false;
+      this.email_correct_signal = false;
     } else if(!this.userService.verify_email(email)) {
 
       this.email_required_signal = false;
       this.email_error_signal = true;
+      this.email_correct_signal = false;
     } else {
 
       this.email_required_signal = false;
       this.email_error_signal = false;
+      this.email_correct_signal = true;
     }
   }
 
@@ -129,7 +128,6 @@ class RegisterController {
     if(!user) {
       this.name_required_signal = true;
       this.email_required_signal = true;
-      this.gender_required_signal = true;
       this.password_required_signal = true;
       this.repeat_password_required_signal = true;
       this.phone_number_required_signal = true;
@@ -140,10 +138,6 @@ class RegisterController {
     }
 
     if(!user.email) {
-      this.name_required_signal = true;
-    }
-
-    if(!user.gender) {
       this.name_required_signal = true;
     }
 
