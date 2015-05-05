@@ -73,6 +73,11 @@ class UserService {
     }
     return code;
   }
+
+  find_invitation_code(code) {
+
+    return this.$http.get('/api/invitation/' + code).then(result => result.data)
+  }
 }
 
 UserService.$inject = ['$http'];

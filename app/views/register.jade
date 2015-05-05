@@ -73,8 +73,12 @@
           .field
             label.three-field-name 邀请码
           .field
-            input#invitation-code(placeholder="邀请码" type="text")
+            input#invitation-code(placeholder="邀请码" type="text" value="{{vm.invitation_code}}" ng-model="vm.invitation_code" ng-change="vm.validate_invitation_code(vm.invitation_code)")
         .tips
+          span.tip(ng-show="vm.invitation_code_required_signal") {{vm.invitation_code_required_tip}}
+          span.tip(ng-show="vm.invitation_code_error_signal") {{vm.invitation_code_error_tip}}
+          span.tip(ng-show="vm.invitation_code_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
         .grouped.inline.fields.inline-fields
           .field

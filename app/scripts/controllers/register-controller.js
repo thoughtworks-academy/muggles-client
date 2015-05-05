@@ -14,6 +14,9 @@ const REPEAT_PASSWORD_ERROR_TIP = '重复密码需与密码一致';
 
 const PHONE_NUMBER_REQUIRED_TIP = '手机号不能为空';
 
+const INVITATION_CODE_REQUIRED_TIP = '邀请码不能为空';
+const INVITATION_CODE_ERROR_TIP = '邀请码错误，请重新输入';
+
 const VERIFICATION_CODE_REQUIRED_TIP = '验证码不能为空';
 const VERIFICATION_CODE_ERROR_TIP = '验证码输入错误，请重新输入';
 
@@ -49,6 +52,12 @@ class RegisterController {
 
     this.phone_number_required_signal = false;
     this.phone_number_required_tip = PHONE_NUMBER_REQUIRED_TIP;
+
+    this.invitation_code_required_signal = false;
+    this.invitation_code_required_tip = INVITATION_CODE_REQUIRED_TIP;
+    this.invitation_code_error_signal = false;
+    this.invitation_code_error_tip = INVITATION_CODE_ERROR_TIP;
+    this.invitation_code_correct_signal = false;
 
     this.verification_code_required_signal = false;
     this.verification_code_required_tip = VERIFICATION_CODE_REQUIRED_TIP;
@@ -135,6 +144,30 @@ class RegisterController {
       this.repeat_password_error_signal = false;
       this.repeat_password_correct_signal = true;
     }
+  }
+
+  validate_invitation_code(invitation_code) {
+
+    this.userService.find_invitation_code(invitation_code)
+      .then(data => {
+
+        if (invitation_code === '') {
+
+          this.invitation_code_required_signal = true;
+          this.invitation_code_error_signal = false;
+          this.invitation_code_correct_signal = false;
+        } else if (data.state === 404) {
+
+          this.invitation_code_required_signal = false;
+          this.invitation_code_error_signal = true;
+          this.invitation_code_correct_signal = false;
+        } else {
+
+          this.invitation_code_required_signal = false;
+          this.invitation_code_error_signal = false;
+          this.invitation_code_correct_signal = true;
+        }
+      });
   }
 
   create_verification_code() {
