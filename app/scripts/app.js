@@ -6,7 +6,7 @@ import angular from 'angular'
 import ngRoute from 'angular-route'
 import controllersModule from './muggles-controller';
 angular
-  .module('Muggles', ['ngRoute'])
+  .module('Muggles', ['ngRoute', controllersModule])
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
