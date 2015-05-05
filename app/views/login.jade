@@ -1,21 +1,23 @@
-.ui.grid
+.ui.grid(ng-controller="loginController")
   .ten.wide.column
     span#welcome-message 欢迎登陆Muggles
   .six.wide.column
-    .ui.form.segment.login(ng-controller='loginController')
+    .ui.form.segment.login
       h3.ui.header.large 登录Muggles
       .field
         label 邮箱
-        input(placeholder="邮箱", ng-model="user.email", type="text")
+        input(placeholder="邮箱", ng-model="vm.user.email", type="text" ng-change="vm.check_email(vm.user.email)")
+        .ui.pointing.label(ng-show="vm.email_required_signal") {{vm.email_is_required}}
       .field
         label 密码
-        input(placeholder="密码",ng-model="user.password", type="password")
+        input(placeholder="密码",ng-model="vm.user.password", type="password" ng-change="vm.check_password(vm.user.password)")
+        .ui.pointing.label(ng-show="vm.password_required_signal") {{vm.password_is_required}}
       .field
-        .grouped.inline.fields(ng-model="user.role")
+        .grouped.inline.fields(ng-model="vm.user.role")
           .field
             input(type="radio" name="role" value="trainee")
             label 学生
           .field
             input(type="radio" name="role" value="trainer")
             label 教师
-      .ui.submit.button.login-button(ng-click="login()") 登录
+      .ui.submit.button.login-button(ng-click="vm.login()") 登录
