@@ -4,7 +4,7 @@ import jquery from 'jquery'
 import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
-
+import controllersModule from './muggles-controller';
 angular
   .module('Muggles', ['ngRoute'])
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -15,9 +15,11 @@ angular
       when('/register', {
         templateUrl: '.tmp/views/register.html'
       }).
-      when('/trainer/home', {
-        templateUrl: '.tmp/views/trainer/home.html'
-      });
+      when('/home', {
+        templateUrl: '.tmp/views/trainer/home.html',
+        controller: 'home_controller',
+        controllerAs: 'vm'
+      }).
       otherwise({
         redirectTo: '/'
       });
