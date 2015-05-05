@@ -3,7 +3,7 @@
 const EMAIL_IS_REQUIRED = '邮箱不能为空';
 const PASSWORD_IS_REQUIRED = '密码不能为空';
 
-class loginController{
+class loginController {
 
     constructor() {
         this.email_required_signal = false;
@@ -12,10 +12,11 @@ class loginController{
         this.password_required_signal = false;
         this.password_is_required = PASSWORD_IS_REQUIRED;
     }
+
     check_email(email) {
         this.email_required_signal = false;
 
-        if(email === '') {
+        if (email === '') {
             this.email_required_signal = true;
         }
     }
@@ -23,11 +24,12 @@ class loginController{
     check_password(password) {
         this.password_required_signal = false;
 
-        if(password === '') {
+        if (password === '') {
             this.password_required_signal = true;
         }
     }
-    login(){
+
+    login() {
         console.log('login...');
     }
 }
