@@ -62,5 +62,3 @@ gulp.task('connect', function() {
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
-
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
