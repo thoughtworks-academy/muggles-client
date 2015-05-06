@@ -81,13 +81,13 @@ class RegisterController {
   change_user_name(name) {
 
     let result = true;
-    if(name === '') {
+    if (name === '') {
 
       this.name_required_signal = true;
       this.name_error_signal = false;
       this.name_correct_signal = false;
       result = false;
-    } else if(!this.userService.verify_name(name)) {
+    } else if (!this.userService.verify_name(name)) {
 
       this.name_required_signal = false;
       this.name_error_signal = true;
@@ -107,7 +107,7 @@ class RegisterController {
   change_user_email(email) {
 
     let result = true;
-    if(email === '') {
+    if (email === '') {
 
       this.email_required_signal = true;
       this.email_error_signal = false;
@@ -115,7 +115,7 @@ class RegisterController {
       this.email_correct_signal = false;
 
       result = false;
-    } else if(!this.userService.verify_email(email)) {
+    } else if (!this.userService.verify_email(email)) {
 
       this.email_required_signal = false;
       this.email_error_signal = true;
@@ -127,7 +127,7 @@ class RegisterController {
       this.userService.find_user_by_email(email)
         .then(resp => {
 
-          if(resp.data) {
+          if (resp.data) {
 
             this.email_required_signal = false;
             this.email_error_signal = false;
@@ -150,13 +150,13 @@ class RegisterController {
   change_user_password(password) {
 
     let result = true;
-    if(password === ''){
+    if (password === '') {
 
       this.password_required_signal = true;
       this.password_error_signal = false;
       this.password_correct_signal = false;
       result = false;
-    } else if(!this.userService.verify_password(password)) {
+    } else if (!this.userService.verify_password(password)) {
 
       this.password_required_signal = false;
       this.password_error_signal = true;
@@ -175,13 +175,13 @@ class RegisterController {
   change_user_repeat_password(password, repeat_password) {
 
     let result = true;
-    if(repeat_password === ''){
+    if (repeat_password === '') {
 
       this.repeat_password_required_signal = true;
       this.repeat_password_error_signal = false;
       this.repeat_password_correct_signal = false;
       result = false;
-    } else if(!this.userService.verify_repeat_password(password, repeat_password)) {
+    } else if (!this.userService.verify_repeat_password(password, repeat_password)) {
 
       this.repeat_password_required_signal = false;
       this.repeat_password_error_signal = true;
@@ -200,13 +200,13 @@ class RegisterController {
   change_user_phone_number(phone_number) {
 
     let result = true;
-    if(phone_number === ''){
+    if (phone_number === '') {
 
       this.phone_number_required_signal = true;
       this.phone_number_error_signal = false;
       this.phone_number_correct_signal = false;
       result = false;
-    } else if(!this.userService.verify_phone_number(phone_number)) {
+    } else if (!this.userService.verify_phone_number(phone_number)) {
 
       this.phone_number_required_signal = false;
       this.phone_number_error_signal = true;
@@ -262,13 +262,13 @@ class RegisterController {
 
 
     let result = true;
-    if(input_code === '') {
+    if (input_code === '') {
 
       this.verification_code_required_signal = true;
       this.verification_code_error_signal = false;
       this.verification_code_correct_signal = false;
       result = false;
-    } else if(input_code !== verification_code) {
+    } else if (input_code !== verification_code) {
 
       this.verification_code_required_signal = false;
       this.verification_code_error_signal = true;
@@ -296,7 +296,7 @@ class RegisterController {
       repeat_password: user.repeat_password || '',
       phone_number: user.phone_number || '',
       invitation_code: user.invitation_code || '',
-      input_code : user.input_code || ''
+      input_code: user.input_code || ''
     };
 
     let result = this.change_user_name(current_user.name);
@@ -307,11 +307,11 @@ class RegisterController {
     result = this.validate_invitation_code(current_user.invitation_code);
     result = this.validate_verification_code(current_user.input_code, verification_code);
 
-    if(result) {
+    if (result) {
       this.userService.create_user(user)
         .then(data => {
 
-          if(data.state === 200) {
+          if (data.state === 200) {
 
             this.success_signal = true;
           }

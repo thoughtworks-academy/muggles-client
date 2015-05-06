@@ -8,17 +8,18 @@ import ngRoute from 'angular-route'
 import { services } from './services/services'
 import { controllers } from './controllers/controllers'
 
-
 angular
   .module('Muggles', [
     'ngRoute',
     'services',
     'controllers'
   ])
-  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: '.tmp/views/login.html'
+        templateUrl: '.tmp/views/login.html',
+        controller: 'loginController',
+        controllerAs: 'vm'
       }).
       when('/register', {
         templateUrl: '.tmp/views/register.html',
@@ -29,14 +30,14 @@ angular
         templateUrl: '.tmp/views/appraise.html',
         controller: 'appraiseController',
         controllerAs: 'vm'
-      }.
-      when('/home', {
-        templateUrl: '.tmp/views/trainer/home.html',
-        controller: 'homeController',
-        controllerAs: 'vm'
       }).
-      otherwise({
-        redirectTo: '/'
-      });
+        when('/home', {
+          templateUrl: '.tmp/views/trainer/home.html',
+          controller: 'homeController',
+          controllerAs: 'vm'
+        }).
+        otherwise({
+          redirectTo: '/'
+        });
     //$locationProvider.html5Mode(true);
   }]);

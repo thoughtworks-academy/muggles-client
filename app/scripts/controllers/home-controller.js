@@ -12,7 +12,7 @@ class HomeController {
     }));
   }
 
-  add_appraise(apparice, trainee){
+  add_appraise(apparice, trainee) {
     this.homeService.add_appraise(apparice, trainee);
   }
 }
