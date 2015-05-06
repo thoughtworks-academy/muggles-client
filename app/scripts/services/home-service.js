@@ -12,7 +12,10 @@ class HomeService {
   }
 
   add_appraise(appraise, trainee){
-    this.$http.put('api/trainees/' + trainee._id + '/appraise', appraise);
+    this.$http.put('api/trainees/' + trainee._id + '/appraise', appraise).
+      success(function (data) {
+        console.log(data);
+      });
   }
 }
 
