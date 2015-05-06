@@ -1,5 +1,6 @@
 'use strict';
 
+import moment from 'moment'
 const CODE_LENGTH = 4;
 
 class UserService {
@@ -35,6 +36,11 @@ class UserService {
     return result;
   }
 
+  find_user_by_email(email) {
+    return this.$http.get('/api/trainees/' + email)
+      .then(result => result.data)
+  }
+
   verify_password(password) {
 
     let result = true;
@@ -60,6 +66,19 @@ class UserService {
     return result;
   }
 
+  verify_phone_number(phone_number) {
+
+    let result = true;
+    let phone_number_reg = /^1[3|4|5|8][0-9]\d{4,8}$/;
+
+    if(!phone_number_reg.exec(phone_number)){
+
+      result = false
+    }
+
+    return result;
+  }
+
   create_verification_code() {
 
     let code = '';
@@ -77,6 +96,21 @@ class UserService {
   find_invitation_code(code) {
 
     return this.$http.get('/api/invitation/' + code).then(result => result.data)
+  }
+
+  create_user(user) {
+
+    let create_date = moment().format('YYYY-MM-DD HH:mm:ss');
+
+    return this.$http.post('/api/trainees', {
+      name: user.name,
+      email: user.email,
+      gender: user.gender,
+      password: user.password,
+      create_date: create_date,
+      phone_number: user.phone_number,
+      current_group: '554983027cb6030c4268d059'
+    }).then(result => result.data)
   }
 }
 
