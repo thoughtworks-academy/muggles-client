@@ -25,9 +25,9 @@ angular
         controller: 'registerController',
         controllerAs: 'vm'
       }).
+
       otherwise({
         redirectTo: '/'
       });
     //$locationProvider.html5Mode(true);
-    $locationProvider.html5Mode(true)
   }]);

@@ -1,15 +1,20 @@
-var moduleName='ugglesservice';
+var moduleName = 'muggle_sservice';
 
-class MugglesService
-{
-
-
-  getActiveBooks(){
-    return HTTP.get(this).get('/api/activeBooks').then(result => result.data );
+class MugglesService {
+  constructor($http) {
+    this.students = get_students();
+    console.log(this.students);
   }
 
+  getActiveBooks() {
+    return $http.get(this).get('/api/activeBooks').then(result => result.data);
+  }
 
-  static muggles_factory($http){
+  get_students() {
+    return $http.get('api/groups/trainees').then.(result => result.data);
+  }
+
+  static muggles_factory($http) {
     return new MugglesService($http);
   }
 }
