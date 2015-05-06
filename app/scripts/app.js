@@ -1,9 +1,10 @@
 'use strict';
 
-import jquery from 'jquery'
-import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
+//import jquery from 'jquery'
+//import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
+
 
 import HomeService from './services/home-service'
 import  HomeController  from './controllers/home-controller'
