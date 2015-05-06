@@ -66,34 +66,34 @@ class RegisterController {
     this.verification_code_correct_signal = false;
   }
 
-    change_user_name(name) {
+  change_user_name(name) {
 
-      if(name === '') {
+    if (name === '') {
 
-        this.name_required_signal = true;
-        this.name_error_signal = false;
-        this.name_correct_signal = false;
-      } else if(!this.userService.verify_name(name)) {
+      this.name_required_signal = true;
+      this.name_error_signal = false;
+      this.name_correct_signal = false;
+    } else if (!this.userService.verify_name(name)) {
 
-        this.name_required_signal = false;
-        this.name_error_signal = true;
-        this.name_correct_signal = false;
-      } else {
+      this.name_required_signal = false;
+      this.name_error_signal = true;
+      this.name_correct_signal = false;
+    } else {
 
-        this.name_required_signal = false;
-        this.name_error_signal = false;
-        this.name_correct_signal = true;
-      }
+      this.name_required_signal = false;
+      this.name_error_signal = false;
+      this.name_correct_signal = true;
     }
+  }
 
-    change_user_email(email) {
+  change_user_email(email) {
 
-    if(email === '') {
+    if (email === '') {
 
       this.email_required_signal = true;
       this.email_error_signal = false;
       this.email_correct_signal = false;
-    } else if(!this.userService.verify_email(email)) {
+    } else if (!this.userService.verify_email(email)) {
 
       this.email_required_signal = false;
       this.email_error_signal = true;
@@ -108,12 +108,12 @@ class RegisterController {
 
   change_user_password(password) {
 
-    if(password === ''){
+    if (password === '') {
 
       this.password_required_signal = true;
       this.password_error_signal = false;
       this.password_correct_signal = false;
-    } else if(!this.userService.verify_password(password)) {
+    } else if (!this.userService.verify_password(password)) {
 
       this.password_required_signal = false;
       this.password_error_signal = true;
@@ -128,12 +128,12 @@ class RegisterController {
 
   change_user_repeat_password(password, repeat_password) {
 
-    if(repeat_password === ''){
+    if (repeat_password === '') {
 
       this.repeat_password_required_signal = true;
       this.repeat_password_error_signal = false;
       this.repeat_password_correct_signal = false;
-    } else if(!this.userService.verify_repeat_password(password, repeat_password)) {
+    } else if (!this.userService.verify_repeat_password(password, repeat_password)) {
 
       this.repeat_password_required_signal = false;
       this.repeat_password_error_signal = true;
@@ -177,12 +177,12 @@ class RegisterController {
 
   validate_verification_code(input_code, verification_code) {
 
-    if(input_code === '') {
+    if (input_code === '') {
 
       this.verification_code_required_signal = true;
       this.verification_code_error_signal = false;
       this.verification_code_correct_signal = false;
-    } else if(input_code !== verification_code) {
+    } else if (input_code !== verification_code) {
 
       this.verification_code_required_signal = false;
       this.verification_code_error_signal = true;
@@ -197,7 +197,7 @@ class RegisterController {
 
   submit_register_information(user) {
     console.log(user);
-    if(!user) {
+    if (!user) {
       this.name_required_signal = true;
       this.email_required_signal = true;
       this.password_required_signal = true;
@@ -205,15 +205,15 @@ class RegisterController {
       this.phone_number_required_signal = true;
     }
 
-    if(!user.name) {
+    if (!user.name) {
       this.name_required_signal = true;
     }
 
-    if(!user.email) {
+    if (!user.email) {
       this.name_required_signal = true;
     }
 
-    if(!user.gender) {
+    if (!user.gender) {
       this.name_required_signal = true;
     }
   }

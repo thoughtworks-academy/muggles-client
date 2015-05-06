@@ -3,7 +3,10 @@
 class HomeController {
   constructor(homeService) {
     console.log('hello angularJS');
-    homeService.getStudents().then((students => console.log(students)));
+    homeService.getTrainee().then((trainees => {
+      console.log(trainees.data);
+      this.trainees = trainees.data;
+    }));
   }
 
 ;

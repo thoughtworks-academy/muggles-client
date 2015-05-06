@@ -7,7 +7,7 @@ class HomeService {
     this.$http = $http
   }
 
-  getStudents(){
+  getTrainee(){
     return this.$http.get('api/groups/trainees').then(result => result)
   }
 }

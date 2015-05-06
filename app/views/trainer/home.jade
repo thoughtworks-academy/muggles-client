@@ -18,8 +18,8 @@
           th
             span 评价
       tbody
-        tr
+        tr(ng-repeat = 'trainee in vm.trainees')
           td
-            span hello
+            span {{trainee.username}}
           td
             span 5

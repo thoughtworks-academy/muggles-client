@@ -30,7 +30,8 @@ angular
       }).
       when('/home', {
         templateUrl: '.tmp/views/trainer/home.html',
-        controller: 'homeController'
+        controller: 'homeController',
+        controllerAs: 'vm'
       }).
       otherwise({
         redirectTo: '/'
