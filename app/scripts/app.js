@@ -5,18 +5,16 @@ import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
 
-import { UserService } from './services/user'
-import { RegisterController } from './controllers/register'
-import { AppraiseController } from './controllers/appraise'
+import { services } from './services/services'
+import { controllers } from './controllers/controllers'
 
 
 angular
   .module('Muggles', [
-    'ngRoute'
+    'ngRoute',
+    'services',
+    'controllers'
   ])
-  .service('userService', UserService)
-  .controller('registerController', RegisterController)
-  .controller('appraiseController', AppraiseController)
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
