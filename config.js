@@ -22,6 +22,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@4.7.16",
     "core-js": "npm:core-js@0.9.6",
     "jquery": "github:components/jquery@2.1.3",
+    "moment": "npm:moment@2.10.2",
     "xiaoyanzhuzzh/Semantic-UI": "github:xiaoyanzhuzzh/Semantic-UI@master",
     "github:angular/bower-angular-mocks@1.3.15": {
       "angular": "github:angular/bower-angular@1.3.15"
@@ -36,6 +37,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:core-js@0.9.6": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:moment@2.10.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     }
   }

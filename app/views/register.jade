@@ -24,6 +24,7 @@
         .tips
           span.tip(ng-show="vm.email_required_signal") {{vm.email_required_tip}}
           span.tip(ng-show="vm.email_error_signal") {{vm.email_error_tip}}
+          span.tip(ng-show="vm.email_again_signal") {{vm.email_again_tip}}
           span.tip(ng-show="vm.email_correct_signal")
             i.checkmark.icon.correct-icon
       .field
@@ -31,10 +32,10 @@
           .field
             label.field-name 性别
           .field
-              input(type="radio" name="fruit" value="男" checked="true")
+              input(type="radio" name="fruit" ng-model="vm.user.gender" value="男" checked="checked")
               label 男
           .field
-              input(type="radio" name="fruit" value="女")
+              input(type="radio" name="fruit" ng-model="vm.user.gender" value="女")
               label 女
         .tips
           span.tip(ng-show="vm.gender_required_signal") {{vm.gender_required_tip}}
@@ -68,12 +69,15 @@
             input#phone-number(placeholder="手机号" type="text" ng-model="vm.user.phone_number" value="{{vm.user.phone_number}}" ng-change="vm.change_user_phone_number(vm.user.phone_number)")
         .tips
           span.tip(ng-show="vm.phone_number_required_signal") {{vm.phone_number_required_tip}}
+          span.tip(ng-show="vm.phone_number_error_signal") {{vm.phone_number_error_tip}}
+          span.tip(ng-show="vm.phone_number_correct_signal")
+            i.checkmark.icon.correct-icon
       .field
         .grouped.inline.fields.inline-fields
           .field
             label.three-field-name 邀请码
           .field
-            input#invitation-code(placeholder="邀请码" type="text" value="{{vm.invitation_code}}" ng-model="vm.invitation_code" ng-change="vm.validate_invitation_code(vm.invitation_code)")
+            input#invitation-code(placeholder="邀请码" type="text" value="{{vm.user.invitation_code}}" ng-model="vm.user.invitation_code" ng-change="vm.validate_invitation_code(vm.user.invitation_code)")
         .tips
           span.tip(ng-show="vm.invitation_code_required_signal") {{vm.invitation_code_required_tip}}
           span.tip(ng-show="vm.invitation_code_error_signal") {{vm.invitation_code_error_tip}}
@@ -84,7 +88,7 @@
           .field
             label.three-field-name 验证码
           .field
-            input#input-verification-code(placeholder="验证码" type="text" value="{{vm.input_code}}" ng-model="vm.input_code" ng-change="vm.validate_verification_code(vm.input_code, vm.verification_code)")
+            input#input-verification-code(placeholder="验证码" type="text" value="{{vm.user.input_code}}" ng-model="vm.user.input_code" ng-change="vm.validate_verification_code(vm.user.input_code, vm.verification_code)")
           .field
             input#verification-code(type="button" value="{{vm.verification_code}}" data-ng-init="vm.create_verification_code()")
         .tips
@@ -93,5 +97,6 @@
           span.tip(ng-show="vm.verification_code_correct_signal")
             i.checkmark.icon.correct-icon
       .field#button-field
-        .ui.positive.reset.button#reset-button(ng-click="vm.submit_register_information(vm.user)") 注册
-        .ui.negative.submit.button#submit-button 返回登录
+        span#success-tip(ng-show="vm.success_signal") 注册成功
+        .ui.positive.reset.button#register-button(ng-click="vm.submit_register_information(vm.user, vm.verification_code, vm.can_regist)") 注册
+        .ui.negative.submit.button#login-button 返回登录
