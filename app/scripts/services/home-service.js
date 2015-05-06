@@ -4,11 +4,15 @@ class HomeService {
 
   constructor($http) {
 
-    this.$http = $http
+    this.$http = $http;
   }
 
-  getTrainee(){
-    return this.$http.get('api/groups/trainees').then(result => result)
+  get_trainee(){
+    return this.$http.get('api/groups/trainees').then(result => result);
+  }
+
+  add_appraise(appraise, trainee){
+    this.$http.put('api/trainees/' + trainee._id + '/appraise', appraise);
   }
 }
 

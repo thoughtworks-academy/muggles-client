@@ -30,17 +30,17 @@
           td
             span {{trainee.username}}
           td
-            select.ui.dropdown
-              option(ng-repeat="type in vm.types" value=level) {{type}}
+            select.ui.dropdown(ng-model="trainee.appraise.type")
+              option(ng-repeat="type in vm.types" value=type) {{type}}
           td
-            select.ui.dropdown
+            select.ui.dropdown(ng-model="trainee.appraise.level")
               option(ng-repeat="level in vm.levels" value=level) {{level}}
           td
             .ui.icon.input
-              input(type="text" placeholder="请输入评语...")
+              input(type="text" placeholder="请输入评语..." ng-model='trainee.appraise.comment')
               i.inverted.search.icon
           td
-            .ui.primary.button(ng-click="vm.add_appraise(type, level)") 确认添加
+            .ui.primary.button(ng-click="vm.add_appraise(trainee.appraise, trainee)") 确认添加
           td
             .ui.primary.button 以往评价
 
