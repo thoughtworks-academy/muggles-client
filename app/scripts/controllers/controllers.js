@@ -2,7 +2,7 @@
 
 import { RegisterController } from './register';
 import { AppraiseController } from './appraise';
-import { LoginController } from './login-controller';
+import { LoginController } from './login';
 
 var moduleName='controllers';
 

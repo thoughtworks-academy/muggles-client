@@ -1,7 +1,7 @@
 'use strict';
 
 import { UserService } from './user';
-import { LoginService} from './login-service'
+import { LoginService} from './login'
 
 var moduleName='services';
 
