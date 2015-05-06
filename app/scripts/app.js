@@ -5,16 +5,16 @@ import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
 
-import { UserService } from './services/user-service'
-import { RegisterController } from './controllers/register-controller'
+import { services } from './services/services'
+import { controllers } from './controllers/controllers'
 
 
 angular
   .module('Muggles', [
-    'ngRoute'
+    'ngRoute',
+    'services',
+    'controllers'
   ])
-  .service('userService', UserService)
-  .controller('registerController', RegisterController)
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
@@ -25,7 +25,11 @@ angular
         controller: 'registerController',
         controllerAs: 'vm'
       }).
-
+      when('/appraise', {
+        templateUrl: '.tmp/views/appraise.html',
+        controller: 'appraiseController',
+        controllerAs: 'vm'
+      }).
       otherwise({
         redirectTo: '/'
       });
