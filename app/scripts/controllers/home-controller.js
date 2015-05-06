@@ -1,13 +1,21 @@
 'use strict';
 
-class home_controller {
-  constructor(muggles_service) {
-    muggles_service.get_students();
-    console.log('hello angularJS');
+class HomeController {
+  constructor(homeService) {
+    this.types = ['日', '周', '月', '季'];
+    this.levels = ['A', 'B', 'C', 'D', 'X'];
+    this.homeService = homeService;
+
+    homeService.get_trainee().then((trainees => {
+      console.log(trainees.data);
+      this.trainees = trainees.data;
+    }));
   }
 
-;
+  add_appraise(apparice, trainee){
+    this.homeService.add_appraise(apparice, trainee);
+  }
 }
 
-home_controller.$inject = ['muggles_service'];
-export default home_controller;
+HomeController.$inject = ['homeService'];
+export default HomeController;

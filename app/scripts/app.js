@@ -1,7 +1,7 @@
 'use strict';
 
-import jquery from 'jquery'
-import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
+//import jquery from 'jquery'
+//import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
 
@@ -28,6 +28,11 @@ angular
       when('/appraise', {
         templateUrl: '.tmp/views/appraise.html',
         controller: 'appraiseController',
+        controllerAs: 'vm'
+      }.
+      when('/home', {
+        templateUrl: '.tmp/views/trainer/home.html',
+        controller: 'homeController',
         controllerAs: 'vm'
       }).
       otherwise({

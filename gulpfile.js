@@ -29,15 +29,36 @@ gulp.task('less_compiler', function() {
       .pipe(gulp.dest('.tmp/styles'))
 });
 
-gulp.task('serve', ['less_compiler', 'jade_compiler'], function() {
+//gulp.task('serve', ['less_compiler', 'jade_compiler']);
+
+gulp.task('serve', ['less_compiler', 'jade_compiler'], function () {
+  browserSync({
+    notify: false,
+    port: 9000,
+    server: {
+      baseDir: ['.tmp', 'app'],
+      routes: {
+        '/node_modules': 'node_modules',
+        '/images': 'images'
+      }
+    }
+  });
 
   gulp.watch([
-    './app/views/**/*.jade',
-    './app/styles/**/*.less'
+    'app/*.html',
+    'app/scripts/**/*.js',
+    'app/styles/**/*.less',
+    '**/*.jade'
   ]).on('change', reload);
 
-  gulp.watch('./app/views/**/*.jade', ['jade_compiler']);
-  gulp.watch('./app/styles/**/*.less', ['less_compiler'])
+  gulp.watch('**/*.jade', ['jade_compiler'])
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    root: '.',
+    livereload: true
+  });
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));

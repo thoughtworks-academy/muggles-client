@@ -75,7 +75,6 @@ class RegisterController {
     this.verification_code_error_signal = false;
     this.verification_code_error_tip = VERIFICATION_CODE_ERROR_TIP;
     this.verification_code_correct_signal = false;
-
     this.success_signal = false;
   }
 
@@ -99,6 +98,7 @@ class RegisterController {
       this.name_required_signal = false;
       this.name_error_signal = false;
       this.name_correct_signal = true;
+
       result = true;
     }
     return result;
@@ -113,6 +113,7 @@ class RegisterController {
       this.email_error_signal = false;
       this.email_again_signal = false;
       this.email_correct_signal = false;
+
       result = false;
     } else if(!this.userService.verify_email(email)) {
 
@@ -259,6 +260,7 @@ class RegisterController {
 
   validate_verification_code(input_code, verification_code) {
 
+
     let result = true;
     if(input_code === '') {
 
@@ -281,6 +283,7 @@ class RegisterController {
     }
     return result;
   }
+
 
   submit_register_information(user, verification_code, can_regist) {
 
