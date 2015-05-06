@@ -5,10 +5,12 @@ import angular from 'angular'
 import ngRoute from 'angular-route'
 
 import { loginController } from './controllers/login-controller'
+import { loginService } from './services/login-service'
 
 angular
   .module('Muggles', ['ngRoute'])
     .controller('loginController',loginController)
+    .service('loginService',loginService)
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
@@ -22,5 +24,5 @@ angular
       otherwise({
         redirectTo: '/'
       })
-    $locationProvider.html5Mode(true);
+   // $locationProvider.html5Mode(true);
   }])
