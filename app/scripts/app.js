@@ -8,7 +8,6 @@ import ngRoute from 'angular-route'
 import { services } from './services/services'
 import { controllers } from './controllers/controllers'
 
-
 angular
   .module('Muggles', [
     'ngRoute',
@@ -18,7 +17,9 @@ angular
   .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: '.tmp/views/login.html'
+        templateUrl: '.tmp/views/login.html',
+        controller: 'loginController',
+        controllerAs: 'vm'
       }).
       when('/register', {
         templateUrl: '.tmp/views/register.html',
@@ -34,5 +35,5 @@ angular
         redirectTo: '/'
       });
     //$locationProvider.html5Mode(true);
-    $locationProvider.html5Mode(true)
+   // $locationProvider.html5Mode(true)
   }]);
