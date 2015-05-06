@@ -7,8 +7,8 @@ const PASSWORD_IS_REQUIRED = '密码不能为空';
 class loginController {
 
     constructor(loginService) {
-
         this.loginService = loginService;
+
         this.email_required_signal = false;
         this.email_is_required = EMAIL_IS_REQUIRED;
 
@@ -35,6 +35,12 @@ class loginController {
     }
 
     login(user) {
+        if (user === undefined) {
+            this.email_required_signal = true;
+            this.password_required_signal = true;
+            return;
+        }
+
         this.loginService.login(user)
             .then(resp => {
 
@@ -42,7 +48,6 @@ class loginController {
                     this.login_message_signal = true;
                     this.login_message = resp.message;
                 }
-
             })
     }
 }
