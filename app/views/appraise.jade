@@ -2,38 +2,8 @@
   .one.wide.column &nbsp;
   .three.wide.column
     .ui.secondary.vertical.menu
-      .ui.dropdown.item#categoryTitle 商品服务分类
-      - each mainCategory in mainCategories
-      .ui.dropdown.item.firstMenu(data-id="#{mainCategory.id}") #{mainCategory.name}
+      .ui.dropdown.item 考评类型
+      .ui.dropdown.item.firstMenu
         i.dropdown.icon
         .menu
-          - each subCategory in mainCategory.subCategories
-          a.item.secondMenu(data-id="#{subCategory._id}" href="/categories/#{subCategory._id}") #{subCategory.name}
-  .eleven.wide.column
-    - var isDisplay = currentCategory.isDisplay
-    - var recommendDisplay = isDisplay ? 'none' : 'auto'
-    - var crumbDisplay = isDisplay ? 'auto' : 'none'
-    - var recommendStyle = {'style': 'display:' + recommendDisplay}
-    - var crumbStyle = {'style': 'display:' + crumbDisplay}
-    .ui.items.crumb&attributes(recommendStyle)
-      .item
-        .content
-          .header 推荐商品
-    .ui.large.breadcrumb.crumb&attributes(crumbStyle)
-      .section #{currentCategory.parent.name}
-        i.right.chevron.icon.ider
-      a.active.section(href="/categories/#{currentCategory._id}") #{currentCategory.name}
-    - var display = (items.length === 0 ? 'auto' : 'none')
-    - var style = {'style': 'display:' + display}
-    .section.notice&attributes(style) 此分类下暂无商品！
-    .ui.four.column.grid
-      - each item in items
-      .column.itemDiv
-        .ui.segment
-          a(href="/items/#{item._id}")
-            img.ui.fluid.image.itemImg(data-id="#{item._id}" data-src="/#{item.image}")
-        .info
-          a.name.itemName(href="/items/#{item._id}" data-content="#{item.name}") #{item.shortName}
-          p.price #{item.price}元
-          a.ui.red.button(href="/items/#{item._id}" data-id="#{item._id}") 立即购买
-    .pagination
+          a.item.secondMenu jkjkjjk
