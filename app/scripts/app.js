@@ -4,15 +4,15 @@ import jquery from 'jquery'
 import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
-import home_controller from './controllers/home-controller'
 
+import  HomeController  from './controllers/home-controller'
 import { UserService } from './services/user-service'
 import { RegisterController } from './controllers/register-controller'
 
 
 angular
   .module('Muggles', ['ngRoute'])
-  .controller('home_controller', home_controller)
+  .controller('homeController', HomeController)
 
   .service('userService', UserService)
   .controller('registerController', RegisterController)
@@ -28,7 +28,7 @@ angular
       }).
       when('/home', {
         templateUrl: '.tmp/views/trainer/home.html',
-        controller: 'home_controller'
+        controller: 'homeController'
       }).
       otherwise({
         redirectTo: '/'

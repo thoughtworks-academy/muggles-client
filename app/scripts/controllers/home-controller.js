@@ -1,6 +1,6 @@
 'use strict';
 
-class home_controller {
+class HomeController {
   constructor() {
     console.log('hello angularJS');
   }
@@ -8,4 +8,4 @@ class home_controller {
 ;
 }
 
-export default home_controller;
+export default HomeController;
