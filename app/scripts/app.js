@@ -5,6 +5,7 @@ import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
 
+import HomeService from './services/home-service'
 import  HomeController  from './controllers/home-controller'
 import { UserService } from './services/user-service'
 import { RegisterController } from './controllers/register-controller'
@@ -12,6 +13,7 @@ import { RegisterController } from './controllers/register-controller'
 
 angular
   .module('Muggles', ['ngRoute'])
+  .service('homeService', HomeService)
   .controller('homeController', HomeController)
 
   .service('userService', UserService)
