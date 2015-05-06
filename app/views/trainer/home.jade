@@ -14,12 +14,33 @@
       thead
         tr
           th
-            span 姓名1
+            span 姓名
           th
-            span 评价
+            span 评价类型
+          th
+            span 评价等级
+          th
+            span 评语
+          th
+            span 确认添加
+          th
+            span 以往评价
       tbody
-        tr(ng-repeat = 'trainee in vm.trainees')
+        tr(ng-repeat="trainee in vm.trainees")
           td
             span {{trainee.username}}
           td
-            span 5
+            select.ui.dropdown
+              option(ng-repeat="type in vm.types" value=level) {{type}}
+          td
+            select.ui.dropdown
+              option(ng-repeat="level in vm.levels" value=level) {{level}}
+          td
+            .ui.icon.input
+              input(type="text" placeholder="请输入评语...")
+              i.inverted.search.icon
+          td
+            .ui.primary.button(ng-click="vm.add_appraise(type, level)") 确认添加
+          td
+            .ui.primary.button 以往评价
+
