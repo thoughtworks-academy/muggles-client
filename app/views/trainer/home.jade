@@ -1,4 +1,12 @@
 .ui.grid#home-grid(ng-controller="homeController")
+  .two.wide.column
+  .eleven.wide.column
+    span Hi，
+    span#current-user {{vm.userName}}
+    span 欢迎来到 Muggles 考评系统
+  .three.wide.column
+    a(ng-click="vm.logout()")#logout 注销
+
   .one.wide.column
   .three.wide.column#group-menu-column
     .ui.wide.vertical.menu

@@ -14,7 +14,7 @@ angular
   ])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
-      when('/', {
+      when('/login', {
         templateUrl: '.tmp/views/login.html',
         controller: 'loginController',
         controllerAs: 'vm'
