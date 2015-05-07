@@ -2,8 +2,8 @@
 
 import { HomeService } from './home-service';
 import { LoginService} from './login-service'
-import { RegisterService } from './register'
-import { InvitationService } from './invitation'
+import { RegisterService } from './register-service'
+import { InvitationService } from './invitation-service'
 import { TraineeService } from './trainee-service';
 
 var moduleName = 'services';
