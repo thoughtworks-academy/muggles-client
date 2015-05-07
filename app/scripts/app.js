@@ -24,14 +24,14 @@ angular
         controller: 'registerController',
         controllerAs: 'vm'
       }).
-      when('/appraise/:id', {
-        templateUrl: '.tmp/views/appraise.html',
-        controller: 'appraiseController',
-        controllerAs: 'vm'
-      }).
       when('/home', {
         templateUrl: '.tmp/views/trainer/home.html',
         controller: 'homeController',
+        controllerAs: 'vm'
+      }).
+      when('/appraise/:trainee_id', {
+        templateUrl: '.tmp/views/appraise.html',
+        controller: 'appraiseController',
         controllerAs: 'vm'
       }).
       otherwise({

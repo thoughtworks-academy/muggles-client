@@ -1,8 +1,8 @@
 'use strict';
 
 import { RegisterController } from './register';
-import { AppraiseController } from './appraise';
 import { LoginController } from './login-controller';
+import { AppraiseController } from './appraise-controller';
 import { HomeController } from './home-controller';
 var moduleName = 'controllers';
 

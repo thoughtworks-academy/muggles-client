@@ -1,6 +1,8 @@
 .ui.page.grid
-  .column
+  .six.wide.column
     h2.ui.inverted.header.black Trainer考评页
+  .ten.wide.column
+    h3.ui.inverted.header.black jjjjjjjjjjjjjj
 .ui.grid(ng-controller="appraiseController")
   .two.wide.column &nbsp;
   .two.wide.column
@@ -8,18 +10,18 @@
       .step
         .content
           .title 考评类型
-      .step
+      .step(ng-class="{true: 'active', false: 'black'} [vm.day_appraises_signal]" ng-click="vm.click_day_appraises()")
         .content
-          .title.active 日考评
-      .step
+          a.title.can-click-step 日考评
+      .step(ng-class="{true: 'active', false: 'black'} [vm.week_appraises_signal]" ng-click="vm.click_week_appraises()")
         .content
-          .title 周考评
-      .step
+          a.title.can-click-step 周考评
+      .step(ng-class="{true: 'active', false: 'black'} [vm.month_appraises_signal]" ng-click="vm.click_month_appraises()")
         .content
-          .title 月考评
-      .step
+          a.title.can-click-step 月考评
+      .step(ng-class="{true: 'active', false: 'black'} [vm.season_appraises_signal]" ng-click="vm.click_season_appraises()")
         .content
-          .title 季考评
+          a.title.can-click-step 季考评
   .ten.wide.column
     table.ui.table
       thead
@@ -36,17 +38,59 @@
             span 组别
           th
             span 评价日期
-      tbody
-        tr(ng-repeat="appraise in vm.appraise_list")
+      tbody(ng-show="vm.day_appraises_signal")
+        tr(ng-repeat="appraise in vm.appraises")
           td
             span &nbsp;
           td
             span {{appraise.level}}
           td
-            span {{appraise.commit}}
+            span {{appraise.comment}}
           td
-            span {{appraise.trainer}}
+            span {{appraise.appraiser.username}}
           td
-            span {{appraise.group}}
+            span {{appraise.group.name}}
           td
-            span {{appraise.create_date}}
+            span {{appraise.appraised_date}}
+      tbody(ng-show="vm.week_appraises_signal")
+        tr(ng-repeat="appraise in vm.appraises")
+          td
+            span &nbsp;
+          td
+            span {{appraise.level}}
+          td
+            span {{appraise.comment}}
+          td
+            span {{appraise.appraiser.username}}
+          td
+            span {{appraise.group.name}}
+          td
+            span {{appraise.appraised_date}}
+      tbody(ng-show="vm.month_appraises_signal")
+        tr(ng-repeat="appraise in vm.appraises")
+          td
+            span &nbsp;
+          td
+            span {{appraise.level}}
+          td
+            span {{appraise.comment}}
+          td
+            span {{appraise.appraiser.username}}
+          td
+            span {{appraise.group.name}}
+          td
+            span {{appraise.appraised_date}}
+      tbody(ng-show="vm.season_appraises_signal")
+        tr(ng-repeat="appraise in vm.appraises")
+          td
+            span &nbsp;
+          td
+            span {{appraise.level}}
+          td
+            span {{appraise.comment}}
+          td
+            span {{appraise.appraiser.username}}
+          td
+            span {{appraise.group.name}}
+          td
+            span {{appraise.appraised_date}}

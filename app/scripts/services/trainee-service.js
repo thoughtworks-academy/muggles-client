@@ -9,7 +9,7 @@ class TraineeService {
 
   find_user_by_email(email) {
 
-    return this.$http.get('/api/trainees/' + email)
+    return this.$http.get('/api/trainees/verification/' + email)
       .then(result => result.data)
   }
 
@@ -24,7 +24,7 @@ class TraineeService {
     let create_date = moment().format('YYYY-MM-DD HH:mm:ss');
 
     return this.$http.post('/api/trainees', {
-      name: user.name,
+      username: user.name,
       email: user.email,
       gender: user.gender,
       password: user.password,
