@@ -3,7 +3,6 @@
 const EMAIL_IS_REQUIRED = '邮箱不能为空';
 const PASSWORD_IS_REQUIRED = '密码不能为空';
 
-
 class LoginController {
 
   constructor(loginService, $location) {
