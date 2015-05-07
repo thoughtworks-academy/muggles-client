@@ -3,12 +3,11 @@
 const EMAIL_IS_REQUIRED = '邮箱不能为空';
 const PASSWORD_IS_REQUIRED = '密码不能为空';
 
-
 class LoginController {
 
-  constructor(loginService) {
+  constructor(loginService, $location) {
     this.loginService = loginService;
-
+    this.location = $location;
     this.email_required_signal = false;
     this.email_is_required = EMAIL_IS_REQUIRED;
 
@@ -44,12 +43,15 @@ class LoginController {
     this.loginService.login(user)
       .then(resp => {
 
-        if (!resp.data) {
+        if (resp.data) {
+
           this.login_message_signal = true;
           this.login_message = resp.message;
+        } else {
+          this.location.path('/register');
         }
       })
   }
 }
-LoginController.$inject = ['loginService'];
+LoginController.$inject = ['loginService', '$location'];
 export { LoginController };
