@@ -31,13 +31,13 @@ angular
         controller: 'appraiseController',
         controllerAs: 'vm'
       }).
-        when('/home', {
-          templateUrl: '.tmp/views/trainer/home.html',
-          controller: 'homeController',
-          controllerAs: 'vm'
-        }).
-        otherwise({
-          redirectTo: '/'
-        });
+      when('/home', {
+        templateUrl: '.tmp/views/trainer/home.html',
+        controller: 'homeController',
+        controllerAs: 'vm'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
     //$locationProvider.html5Mode(true);
   }]);

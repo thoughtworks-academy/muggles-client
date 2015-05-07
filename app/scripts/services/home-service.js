@@ -21,4 +21,4 @@ class HomeService {
 
 HomeService.$inject = ['$http'];
 
-export default HomeService
+export { HomeService }
