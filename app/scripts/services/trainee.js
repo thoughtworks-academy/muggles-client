@@ -7,10 +7,15 @@ class TraineeService {
     this.$http = $http
   }
 
-
   find_user_by_email(email) {
 
     return this.$http.get('/api/trainees/' + email)
+      .then(result => result.data)
+  }
+
+  find_trainee_by_id(id) {
+
+    return this.$http.get('/api/trainees/' + id)
       .then(result => result.data)
   }
 

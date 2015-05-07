@@ -8,7 +8,8 @@ var moduleName = 'controllers';
 
 angular.module(moduleName, [])
   .controller('registerController', RegisterController)
-  .controller('appraiseController', AppraiseController)
   .controller('loginController', LoginController)
-  .controller('homeController', HomeController);
+  .controller('homeController', HomeController)
+  .controller('appraiseController', AppraiseController);
+
 export { moduleName }

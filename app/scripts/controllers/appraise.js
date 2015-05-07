@@ -2,17 +2,17 @@
 
 class AppraiseController {
 
-  constructor(userService) {
+  constructor($routeParams, traineeService) {
 
-    this.userService = userService;
-    this.userService.find_trainee_by_id()
+    this.traineeService = traineeService;
+
+    traineeService.find_trainee_by_id($routeParams.trainee_id)
       .then(resp => {
-
-        this.trainee_name = resp.data;
-        console.log(resp.data)
+        this.trainee_name = resp.data.name;
       })
+
   }
 }
 
-AppraiseController.$inject = ['userService'];
+AppraiseController.$inject = ['$routeParams', 'traineeService'];
 export { AppraiseController }
