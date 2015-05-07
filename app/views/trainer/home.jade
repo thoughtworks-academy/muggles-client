@@ -18,6 +18,8 @@
           th
             span 评价类型
           th
+            span 评价日期
+          th
             span 评价等级
           th
             span 评语
@@ -30,8 +32,10 @@
           td
             span {{trainee.username}}
           td
-            select.ui.dropdown(ng-model="trainee.appraise.type")
-              option(ng-repeat="type in vm.types" value=type) {{type}}
+            select.ui.dropdown(ng-model="trainee.appraise.type" ng-change="vm.type_change(trainee.appraise.type)")
+              option(ng-repeat="type in vm.types" value="{{type.value}}") {{type.name}}
+          td
+            input(type="month" placeholder="2015-5-10" required ng-model="trainee.appraise.date")
           td
             select.ui.dropdown(ng-model="trainee.appraise.level")
               option(ng-repeat="level in vm.levels" value=level) {{level}}
