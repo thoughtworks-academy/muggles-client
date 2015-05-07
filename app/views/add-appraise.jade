@@ -1,0 +1,44 @@
+.ui.grid
+  .two.wide.column
+  .eleven.wide.column
+    span Hi，
+    span#current-user {{vm.userName}}
+    span 欢迎来到 Muggles 考评系统
+  .three.wide.column
+    a(ng-click="vm.logout()")#logout 注销
+  .one.wide.column
+  .three.wide.column#group-menu-column
+    .ui.wide.vertical.menu
+      a.active.item
+        label group1
+      a.item
+        label group2
+      a.item
+        label group3
+  .ten.wide.column
+    span 评价类型:
+      select.ui.dropdown(ng-model="trainee.appraise.type" ng-options="type for type in vm.types ")
+        option(value="") 请选择...
+    span 选择日期:
+      input(type="date" placeholder="2015-5-10" required ng-model="trainee.appraise.date")
+    table.ui.table
+      thead
+        tr
+          th
+            span 姓名
+          th
+            span 评价等级
+          th
+            span 评语
+      tbody
+        tr(ng-repeat="trainee in vm.trainees")
+          td
+            span {{trainee.username}}
+          td
+            select.ui.dropdown(ng-model="trainee.appraise.level" ng-options="level for level in vm.levels")
+              option(value="") 请选择...
+          td
+            .ui.icon.input
+              input(type="text" placeholder="请输入评语..." ng-model='trainee.appraise.comment')
+              i.inverted.search.icon
+    .ui.primary.button(ng-click="vm.add_appraise(trainee.appraise, trainee)") 确认添加

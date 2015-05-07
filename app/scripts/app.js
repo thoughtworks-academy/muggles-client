@@ -34,6 +34,11 @@ angular
         controller: 'appraiseController',
         controllerAs: 'vm'
       }).
+      when('/add', {
+        templateUrl: '.tmp/views/add-appraise.html',
+        controller: 'homeController',
+        controllerAs: 'vm'
+      }).
       otherwise({
         redirectTo: '/'
       });
