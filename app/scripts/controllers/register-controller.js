@@ -322,5 +322,4 @@ class RegisterController {
 }
 
 RegisterController.$inject = ['registerService', 'invitationService', 'traineeService'];
-
 export { RegisterController }

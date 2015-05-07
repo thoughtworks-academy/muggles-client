@@ -4,18 +4,18 @@ class TraineeService {
 
   constructor($http) {
 
-    this.$http = $http
+    this.http = $http
   }
 
   find_user_by_email(email) {
 
-    return this.$http.get('/api/trainees/verification/' + email)
+    return this.http.get('/api/trainees/verification/' + email)
       .then(result => result.data)
   }
 
   find_trainee_by_id(id) {
 
-    return this.$http.get('/api/trainees/' + id)
+    return this.http.get('/api/trainees/' + id)
       .then(result => result.data)
   }
 
@@ -23,7 +23,7 @@ class TraineeService {
 
     let create_date = moment().format('YYYY-MM-DD HH:mm:ss');
 
-    return this.$http.post('/api/trainees', {
+    return this.http.post('/api/trainees', {
       username: user.name,
       email: user.email,
       gender: user.gender,

@@ -24,5 +24,4 @@ class HomeService {
 }
 
 HomeService.$inject = ['$http'];
-
 export { HomeService }
