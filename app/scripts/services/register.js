@@ -3,7 +3,7 @@
 import moment from 'moment'
 const CODE_LENGTH = 4;
 
-class UserService {
+class RegisterService {
 
   constructor($http) {
 
@@ -113,11 +113,9 @@ class UserService {
     }).then(result => result.data)
   }
 
-  find_trainee_by_name(id){
-    return this.$http.get('/api/trainees' + id).then(result => result.data)
-  }
 }
 
-UserService.$inject = ['$http'];
+RegisterService.$inject = ['$http'];
 
-export { UserService }
+export { RegisterService }
+

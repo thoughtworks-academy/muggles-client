@@ -22,7 +22,7 @@ angular
         controller: 'registerController',
         controllerAs: 'vm'
       }).
-      when('/appraise', {
+      when('/appraise/:id', {
         templateUrl: '.tmp/views/appraise.html',
         controller: 'appraiseController',
         controllerAs: 'vm'
