@@ -9,7 +9,9 @@ class AppraiseController {
     traineeService.find_trainee_by_id($routeParams.trainee_id)
       .then(resp => {
 
-        this.trainee_name = resp.data.name;
+        console.log(resp.data.appraises);
+        this.trainee_name = resp.data.username;
+        this.appraises = resp.data.appraises;
       })
 
   }

@@ -24,7 +24,7 @@ class TraineeService {
     let create_date = moment().format('YYYY-MM-DD HH:mm:ss');
 
     return this.$http.post('/api/trainees', {
-      name: user.name,
+      username: user.name,
       email: user.email,
       gender: user.gender,
       password: user.password,

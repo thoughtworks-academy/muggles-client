@@ -1,6 +1,8 @@
 .ui.page.grid
-  .column
+  .six.wide.column
     h2.ui.inverted.header.black Trainer考评页
+  .ten.wide.column
+    h3.ui.inverted.header.black jjjjjjjjjjjjjj
 .ui.grid(ng-controller="appraiseController")
   .two.wide.column &nbsp;
   .two.wide.column
@@ -8,9 +10,9 @@
       .step
         .content
           .title 考评类型
-      .step
+      .step.active
         .content
-          .title.active 日考评
+          .title 日考评
       .step
         .content
           .title 周考评
@@ -37,16 +39,16 @@
           th
             span 评价日期
       tbody
-        tr(ng-repeat="appraise in vm.appraise_list")
+        tr(ng-repeat="appraise in vm.appraises")
           td
             span &nbsp;
           td
             span {{appraise.level}}
           td
-            span {{appraise.commit}}
+            span {{appraise.comment}}
           td
-            span {{appraise.trainer}}
+            span {{appraise.appraiser.username}}
           td
-            span {{appraise.group}}
+            span {{appraise.group.name}}
           td
-            span {{appraise.create_date}}
+            span {{appraise.appraised_date}}
