@@ -9,7 +9,7 @@ class TraineeService {
 
   find_user_by_email(email) {
 
-    return this.$http.get('/api/trainees/' + email)
+    return this.$http.get('/api/trainees/verification/' + email)
       .then(result => result.data)
   }
 
