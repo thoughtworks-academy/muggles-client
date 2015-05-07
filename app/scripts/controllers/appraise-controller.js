@@ -17,7 +17,38 @@ class AppraiseController {
         this.trainee_name = resp.data.username;
         this.appraises = resp.data.appraises;
       })
+  }
 
+  click_day_appraises() {
+
+    this.day_appraises_signal = true;
+    this.week_appraises_signal = false;
+    this.month_appraises_signal = false;
+    this.season_appraises_signal = false;
+  }
+
+  click_week_appraises() {
+
+    this.day_appraises_signal = false;
+    this.week_appraises_signal = true;
+    this.month_appraises_signal = false;
+    this.season_appraises_signal = false;
+  }
+
+  click_month_appraises() {
+
+    this.day_appraises_signal = false;
+    this.week_appraises_signal = false;
+    this.month_appraises_signal = true;
+    this.season_appraises_signal = false;
+  }
+
+  click_season_appraises() {
+
+    this.day_appraises_signal = false;
+    this.week_appraises_signal = false;
+    this.month_appraises_signal = false;
+    this.season_appraises_signal = true;
   }
 }
 

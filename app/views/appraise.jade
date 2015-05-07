@@ -10,20 +10,20 @@
       .step
         .content
           .title 考评类型
-      .step(ng-class="{true: 'active', false: 'completed'} [vm.day_appraises_signal]")
+      .step(ng-class="{true: 'active', false: 'black'} [vm.day_appraises_signal]" ng-click="vm.click_day_appraises()")
         .content
-          .title 日考评
-      .step(ng-class="{true: 'active', false: 'completed'} [vm.week_appraises_signal]")
+          a.title.can-click-step 日考评
+      .step(ng-class="{true: 'active', false: 'black'} [vm.week_appraises_signal]" ng-click="vm.click_week_appraises()")
         .content
-          .title 周考评
-      .step(ng-class="{true: 'active', false: 'completed'} [vm.month_appraises_signal]")
+          a.title.can-click-step 周考评
+      .step(ng-class="{true: 'active', false: 'black'} [vm.month_appraises_signal]" ng-click="vm.click_month_appraises()")
         .content
-          .title 月考评
-      .step(ng-class="{true: 'active', false: 'completed'} [vm.season_appraises_signal]")
+          a.title.can-click-step 月考评
+      .step(ng-class="{true: 'active', false: 'black'} [vm.season_appraises_signal]" ng-click="vm.click_season_appraises()")
         .content
-          .title 季考评
+          a.title.can-click-step 季考评
   .ten.wide.column
-    table.ui.table(ng-show="vm.day_appraises_signal")
+    table.ui.table
       thead
         tr
           th
@@ -38,7 +38,7 @@
             span 组别
           th
             span 评价日期
-      tbody
+      tbody(ng-show="vm.day_appraises_signal")
         tr(ng-repeat="appraise in vm.appraises")
           td
             span &nbsp;
@@ -52,22 +52,7 @@
             span {{appraise.group.name}}
           td
             span {{appraise.appraised_date}}
-    table.ui.table(ng-show="vm.week_appraises_signal")
-      thead
-        tr
-          th
-            span {{vm.trainee_name}}
-          th
-            span 考评等级
-          th
-            span 考评理由
-          th
-            span 考评人
-          th
-            span 组别
-          th
-            span 评价日期
-      tbody
+      tbody(ng-show="vm.week_appraises_signal")
         tr(ng-repeat="appraise in vm.appraises")
           td
             span &nbsp;
@@ -81,22 +66,7 @@
             span {{appraise.group.name}}
           td
             span {{appraise.appraised_date}}
-    table.ui.table(ng-show="vm.month_appraises_signal")
-      thead
-        tr
-          th
-            span {{vm.trainee_name}}
-          th
-            span 考评等级
-          th
-            span 考评理由
-          th
-            span 考评人
-          th
-            span 组别
-          th
-            span 评价日期
-      tbody
+      tbody(ng-show="vm.month_appraises_signal")
         tr(ng-repeat="appraise in vm.appraises")
           td
             span &nbsp;
@@ -110,22 +80,7 @@
             span {{appraise.group.name}}
           td
             span {{appraise.appraised_date}}
-    table.ui.table(ng-show="vm.season_appraises_signal")
-      thead
-        tr
-          th
-            span {{vm.trainee_name}}
-          th
-            span 考评等级
-          th
-            span 考评理由
-          th
-            span 考评人
-          th
-            span 组别
-          th
-            span 评价日期
-      tbody
+      tbody(ng-show="vm.season_appraises_signal")
         tr(ng-repeat="appraise in vm.appraises")
           td
             span &nbsp;
