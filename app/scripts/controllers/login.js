@@ -48,7 +48,7 @@ class LoginController {
           this.login_message_signal = true;
           this.login_message = resp.message;
         } else {
-          this.location.path('/register');
+          this.location.path('/home');
         }
       })
   }
