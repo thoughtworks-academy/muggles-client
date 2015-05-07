@@ -7,7 +7,9 @@ class HomeController {
     this.homeService = homeService;
     homeService.get_trainee().then((trainees => {
       console.log(trainees.data);
-      this.trainees = trainees.data;
+      
+      this.trainees = trainees.data.trainees;
+      this.userName = trainees.data.currentUserName;
     }));
   }
 
