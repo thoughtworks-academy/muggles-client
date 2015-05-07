@@ -5,7 +5,7 @@ const NAME_ERROR_TIP = '姓名必须为中文';
 
 const EMAIL_REQUIRED_TIP = '邮箱不能为空';
 const EMAIL_ERROR_TIP = '请输入正确的邮箱格式';
-const EMAIL_AGAIN_TIP = '此邮箱已被注册，请重新输入'
+const EMAIL_AGAIN_TIP = '此邮箱已被注册，请重新输入';
 
 const PASSWORD_REQUIRED_TIP = '密码不能为空';
 const PASSWORD_ERROR_TIP = '密码至少为6位字节';
@@ -24,9 +24,10 @@ const VERIFICATION_CODE_ERROR_TIP = '验证码输入错误，请重新输入';
 
 class RegisterController {
 
-  constructor(registerService) {
+  constructor(registerService, invitationService) {
 
     this.registerService = registerService;
+    this.invitationService = invitationService;
 
     this.name_required_signal = false;
     this.name_required_tip = NAME_REQUIRED_TIP;
@@ -123,7 +124,7 @@ class RegisterController {
       result = false;
     } else {
 
-      this.registerService.find_user_by_email(email)
+      this.invitationService.find_user_by_email(email)
         .then(resp => {
 
           if(resp.data) {
@@ -231,7 +232,7 @@ class RegisterController {
       this.invitation_code_correct_signal = false;
       result = false;
     } else {
-      this.registerService.find_invitation_code(invitation_code)
+      this.invitationService.find_invitation_code(invitation_code)
         .then(data => {
 
           if (data.state === 404) {
@@ -305,7 +306,7 @@ class RegisterController {
     result = this.validate_verification_code(current_user.input_code, verification_code);
 
     if(result) {
-      this.registerService.create_user(user)
+      this.invitationService.create_user(user)
         .then(data => {
 
           if(data.state === 200) {
@@ -317,6 +318,6 @@ class RegisterController {
   }
 }
 
-RegisterController.$inject = ['registerService'];
+RegisterController.$inject = ['registerService', 'invitationService'];
 
 export { RegisterController }
