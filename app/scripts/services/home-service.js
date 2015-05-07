@@ -8,7 +8,7 @@ class HomeService {
   }
 
   get_trainee() {
-    return this.$http.get('api/groups/trainees').then(result => result);
+    return this.$http.get('api/groups/554983027cb6030c4268d059/trainees').then(result => result);
   }
 
   add_appraise(appraise, trainee) {
