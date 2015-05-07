@@ -2,14 +2,14 @@
 
 import { RegisterService } from './register'
 import { InvitationService } from './invitation'
-import { UserService } from './user';
+import { TraineeService } from './trainee';
 
 var moduleName='services';
 
 angular.module(moduleName, [])
   .service('registerService', RegisterService)
   .service('invitationService', InvitationService)
-  .service('userService', UserService);
+  .service('traineeService', TraineeService);
 
 export { moduleName }
 

@@ -24,10 +24,11 @@ const VERIFICATION_CODE_ERROR_TIP = '验证码输入错误，请重新输入';
 
 class RegisterController {
 
-  constructor(registerService, invitationService) {
+  constructor(registerService, invitationService, traineeService) {
 
     this.registerService = registerService;
     this.invitationService = invitationService;
+    this.traineeService = traineeService;
 
     this.name_required_signal = false;
     this.name_required_tip = NAME_REQUIRED_TIP;
@@ -124,7 +125,7 @@ class RegisterController {
       result = false;
     } else {
 
-      this.invitationService.find_user_by_email(email)
+      this.traineeService.find_user_by_email(email)
         .then(resp => {
 
           if(resp.data) {
@@ -306,7 +307,7 @@ class RegisterController {
     result = this.validate_verification_code(current_user.input_code, verification_code);
 
     if(result) {
-      this.invitationService.create_user(user)
+      this.traineeService.create_user(user)
         .then(data => {
 
           if(data.state === 200) {
@@ -318,6 +319,6 @@ class RegisterController {
   }
 }
 
-RegisterController.$inject = ['registerService', 'invitationService'];
+RegisterController.$inject = ['registerService', 'invitationService', 'traineeService'];
 
 export { RegisterController }
