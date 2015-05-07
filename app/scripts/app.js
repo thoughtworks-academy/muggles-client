@@ -1,7 +1,5 @@
 'use strict';
 
-//import jquery from 'jquery'
-//import semantic from 'xiaoyanzhuzzh/Semantic-UI@master/dist/semantic.min'
 import angular from 'angular'
 import ngRoute from 'angular-route'
 
@@ -26,7 +24,7 @@ angular
         controller: 'registerController',
         controllerAs: 'vm'
       }).
-      when('/appraise', {
+      when('/appraise/:id', {
         templateUrl: '.tmp/views/appraise.html',
         controller: 'appraiseController',
         controllerAs: 'vm'

@@ -1,9 +1,52 @@
+.ui.page.grid
+  .column
+    h2.ui.inverted.header.black Trainer考评页
 .ui.grid(ng-controller="appraiseController")
-  .one.wide.column &nbsp;
-  .three.wide.column
-    .ui.secondary.vertical.menu
-      .ui.dropdown.item 考评类型
-      .ui.dropdown.item.firstMenu
-        i.dropdown.icon
-        .menu
-          a.item.secondMenu jkjkjjk
+  .two.wide.column &nbsp;
+  .two.wide.column
+    .ui.fluid.vertical.steps
+      .step
+        .content
+          .title 考评类型
+      .step
+        .content
+          .title.active 日考评
+      .step
+        .content
+          .title 周考评
+      .step
+        .content
+          .title 月考评
+      .step
+        .content
+          .title 季考评
+  .ten.wide.column
+    table.ui.table
+      thead
+        tr
+          th
+            span {{vm.trainee_name}}
+          th
+            span 考评等级
+          th
+            span 考评理由
+          th
+            span 考评人
+          th
+            span 组别
+          th
+            span 评价日期
+      tbody
+        tr(ng-repeat="appraise in vm.appraise_list")
+          td
+            span &nbsp;
+          td
+            span {{appraise.level}}
+          td
+            span {{appraise.commit}}
+          td
+            span {{appraise.trainer}}
+          td
+            span {{appraise.group}}
+          td
+            span {{appraise.create_date}}

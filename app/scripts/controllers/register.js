@@ -5,7 +5,7 @@ const NAME_ERROR_TIP = '姓名必须为中文';
 
 const EMAIL_REQUIRED_TIP = '邮箱不能为空';
 const EMAIL_ERROR_TIP = '请输入正确的邮箱格式';
-const EMAIL_AGAIN_TIP = '此邮箱已被注册，请重新输入'
+const EMAIL_AGAIN_TIP = '此邮箱已被注册，请重新输入';
 
 const PASSWORD_REQUIRED_TIP = '密码不能为空';
 const PASSWORD_ERROR_TIP = '密码至少为6位字节';
@@ -24,9 +24,11 @@ const VERIFICATION_CODE_ERROR_TIP = '验证码输入错误，请重新输入';
 
 class RegisterController {
 
-  constructor(userService) {
+  constructor(registerService, invitationService, traineeService) {
 
-    this.userService = userService;
+    this.registerService = registerService;
+    this.invitationService = invitationService;
+    this.traineeService = traineeService;
 
     this.name_required_signal = false;
     this.name_required_tip = NAME_REQUIRED_TIP;
@@ -87,7 +89,7 @@ class RegisterController {
       this.name_error_signal = false;
       this.name_correct_signal = false;
       result = false;
-    } else if (!this.userService.verify_name(name)) {
+    } else if(!this.registerService.verify_name(name)) {
 
       this.name_required_signal = false;
       this.name_error_signal = true;
@@ -115,7 +117,7 @@ class RegisterController {
       this.email_correct_signal = false;
 
       result = false;
-    } else if (!this.userService.verify_email(email)) {
+    } else if(!this.registerService.verify_email(email)) {
 
       this.email_required_signal = false;
       this.email_error_signal = true;
@@ -124,7 +126,7 @@ class RegisterController {
       result = false;
     } else {
 
-      this.userService.find_user_by_email(email)
+      this.traineeService.find_user_by_email(email)
         .then(resp => {
 
           if (resp.data) {
@@ -156,7 +158,7 @@ class RegisterController {
       this.password_error_signal = false;
       this.password_correct_signal = false;
       result = false;
-    } else if (!this.userService.verify_password(password)) {
+    } else if(!this.registerService.verify_password(password)) {
 
       this.password_required_signal = false;
       this.password_error_signal = true;
@@ -181,7 +183,7 @@ class RegisterController {
       this.repeat_password_error_signal = false;
       this.repeat_password_correct_signal = false;
       result = false;
-    } else if (!this.userService.verify_repeat_password(password, repeat_password)) {
+    } else if(!this.registerService.verify_repeat_password(password, repeat_password)) {
 
       this.repeat_password_required_signal = false;
       this.repeat_password_error_signal = true;
@@ -206,7 +208,7 @@ class RegisterController {
       this.phone_number_error_signal = false;
       this.phone_number_correct_signal = false;
       result = false;
-    } else if (!this.userService.verify_phone_number(phone_number)) {
+    } else if(!this.registerService.verify_phone_number(phone_number)) {
 
       this.phone_number_required_signal = false;
       this.phone_number_error_signal = true;
@@ -232,7 +234,7 @@ class RegisterController {
       this.invitation_code_correct_signal = false;
       result = false;
     } else {
-      this.userService.find_invitation_code(invitation_code)
+      this.invitationService.find_invitation_code(invitation_code)
         .then(data => {
 
           if (data.state === 404) {
@@ -255,7 +257,7 @@ class RegisterController {
 
   create_verification_code() {
 
-    this.verification_code = this.userService.create_verification_code();
+    this.verification_code = this.registerService.create_verification_code();
   }
 
   validate_verification_code(input_code, verification_code) {
@@ -284,8 +286,7 @@ class RegisterController {
     return result;
   }
 
-
-  submit_register_information(user, verification_code, can_regist) {
+  submit_register_information(user, verification_code) {
 
     let current_user = {
 
@@ -307,8 +308,8 @@ class RegisterController {
     result = this.validate_invitation_code(current_user.invitation_code);
     result = this.validate_verification_code(current_user.input_code, verification_code);
 
-    if (result) {
-      this.userService.create_user(user)
+    if(result) {
+      this.traineeService.create_user(user)
         .then(data => {
 
           if (data.state === 200) {
@@ -320,6 +321,6 @@ class RegisterController {
   }
 }
 
-RegisterController.$inject = ['userService'];
+RegisterController.$inject = ['registerService', 'invitationService', 'traineeService'];
 
 export { RegisterController }
