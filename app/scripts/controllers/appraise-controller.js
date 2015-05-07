@@ -10,12 +10,17 @@ class AppraiseController {
     this.week_appraises_signal = false;
     this.month_appraises_signal = false;
     this.season_appraises_signal = false;
+
     traineeService.find_trainee_by_id($routeParams.trainee_id)
       .then(resp => {
 
-        console.log(resp.data.appraises);
         this.trainee_name = resp.data.username;
-        this.appraises = resp.data.appraises;
+        let appraises = resp.data.appraises;
+
+        this.day_appraises = appraises.filter(appraise => appraise.type === '日');
+        this.week_appraises = appraises.filter(appraise => appraise.type === '周');
+        this.month_appraises = appraises.filter(appraise => appraise.type === '月');
+        this.season_appraises = appraises.filter(appraise => appraise.type === '季');
       })
   }
 

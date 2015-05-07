@@ -1,6 +1,6 @@
 'use strict';
 
-import { RegisterController } from './register';
+import { RegisterController } from './register-controller';
 import { LoginController } from './login-controller';
 import { AppraiseController } from './appraise-controller';
 import { HomeController } from './home-controller';

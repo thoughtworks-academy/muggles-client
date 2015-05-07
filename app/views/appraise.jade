@@ -39,7 +39,7 @@
           th
             span 评价日期
       tbody(ng-show="vm.day_appraises_signal")
-        tr(ng-repeat="appraise in vm.appraises")
+        tr(ng-repeat="appraise in vm.day_appraises")
           td
             span &nbsp;
           td
@@ -53,7 +53,7 @@
           td
             span {{appraise.appraised_date}}
       tbody(ng-show="vm.week_appraises_signal")
-        tr(ng-repeat="appraise in vm.appraises")
+        tr(ng-repeat="appraise in vm.week_appraises")
           td
             span &nbsp;
           td
@@ -67,7 +67,7 @@
           td
             span {{appraise.appraised_date}}
       tbody(ng-show="vm.month_appraises_signal")
-        tr(ng-repeat="appraise in vm.appraises")
+        tr(ng-repeat="appraise in vm.month_appraises")
           td
             span &nbsp;
           td
@@ -81,7 +81,7 @@
           td
             span {{appraise.appraised_date}}
       tbody(ng-show="vm.season_appraises_signal")
-        tr(ng-repeat="appraise in vm.appraises")
+        tr(ng-repeat="appraise in vm.season_appraises")
           td
             span &nbsp;
           td
