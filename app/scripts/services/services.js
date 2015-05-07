@@ -1,7 +1,7 @@
 'use strict';
 
 import { HomeService } from './home-service';
-import { LoginService} from './login'
+import { LoginService} from './login-service'
 import { RegisterService } from './register'
 import { InvitationService } from './invitation'
 import { TraineeService } from './trainee';
