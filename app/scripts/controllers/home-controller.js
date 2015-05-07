@@ -2,7 +2,7 @@
 
 class HomeController {
   constructor(homeService) {
-    this.types = [{name:'日', value: 'date'}, {name: '周', value: 'week'}, {name: '月', value: 'month'}, {name: '季', value: 'season'}];
+    this.types = ['日','周','月','季'];
     this.levels = ['A', 'B', 'C', 'D', 'X'];
     this.homeService = homeService;
     this.trainee = {};
@@ -19,17 +19,17 @@ class HomeController {
 
   type_change(type){
     switch (type) {
-      case 'date':
-            console.log('date');
+      case '日':
+            console.log('日');
             break;
-      case 'week':
-            console.log('week');
+      case '周':
+            console.log('周');
             break;
-      case 'month':
-            console.log('month');
+      case '月':
+            console.log('月');
             break;
-      case 'season':
-            console.log('season');
+      case '季':
+            console.log('季');
             break;
       default :
             console.log('nothing');
