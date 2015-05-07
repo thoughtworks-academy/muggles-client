@@ -40,7 +40,7 @@
               input(type="text" placeholder="请输入评语..." ng-model='trainee.appraise.comment')
               i.inverted.search.icon
           td
-            .ui.primary.button(ng-click="vm.add_appraise(trainee.appraise, trainee)") 确认添加
+            .ui.primary.button(ng-click="vm.add_appraise({type: trainee.appraise.type, level: trainee.appraise.level, comment: trainee.appraise.comment, group: trainee.current_group}, trainee)") 确认添加
           td
             .ui.primary.button 以往评价
 
