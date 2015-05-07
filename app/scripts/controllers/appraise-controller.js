@@ -6,6 +6,10 @@ class AppraiseController {
 
     this.traineeService = traineeService;
 
+    this.day_appraises_signal = true;
+    this.week_appraises_signal = false;
+    this.month_appraises_signal = false;
+    this.season_appraises_signal = false;
     traineeService.find_trainee_by_id($routeParams.trainee_id)
       .then(resp => {
 
