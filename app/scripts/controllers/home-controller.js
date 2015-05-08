@@ -10,11 +10,8 @@ class HomeController {
     this.date_type = 'date';
     this.location = $location;
     homeService.get_trainee().then((trainees => {
-      console.log(trainees.data);
 
       this.trainees = trainees.data.trainees;
-      this.trainerName = trainees.data.currentTrainerName;
-      console.log(this.trainerName);
     }));
   }
 
@@ -44,10 +41,6 @@ class HomeController {
       default :
         console.log('nothing');
     }
-  }
-
-  logout(){
-    this.homeService.logout().then(() => this.location.path('/login'))
   }
 }
 
