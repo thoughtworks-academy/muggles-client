@@ -39,6 +39,7 @@ class HomeController {
         console.log('nothing');
     }
   }
+
   logout(){
     this.homeService.logout().then(() => this.location.path('/login'))
   }
