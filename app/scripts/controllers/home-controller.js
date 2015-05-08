@@ -1,5 +1,4 @@
 'use strict';
-
 class HomeController {
 
   constructor(homeService,$location) {
@@ -10,16 +9,17 @@ class HomeController {
     this.date_type = 'date';
     this.location = $location;
     homeService.get_trainee().then((trainees => {
-      console.log(trainees.data);
-
       this.trainees = trainees.data.trainees;
       this.userName = trainees.data.currentUserName;
     }));
   }
 
   add_appraise(apparice, trainee) {
-    console.log(apparice);
     this.homeService.add_appraise(apparice, trainee);
+  }
+
+  add_appraises(trainees) {
+    this.homeService.add_appraises(trainees);
   }
 
   type_change(type) {

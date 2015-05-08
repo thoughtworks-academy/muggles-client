@@ -3,7 +3,6 @@
 class HomeService {
 
   constructor($http) {
-
     this.$http = $http;
   }
 
@@ -12,10 +11,15 @@ class HomeService {
   }
 
   add_appraise(appraise, trainee) {
-    this.$http.put('api/trainees/' + trainee._id + '/appraise', appraise).
-      success(function (data) {
-        console.log(data);
-      });
+    this.$http.put('api/trainees/' + trainee._id + '/appraise', appraise).then(result => {
+      console.log(result);
+    });
+  }
+
+  add_appraises(trainees) {
+    this.$http.put('api/trainees/appraises', trainees).then(result => {
+      console.log(result);
+    });
   }
 
   logout(){
