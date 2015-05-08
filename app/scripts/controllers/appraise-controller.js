@@ -8,7 +8,7 @@ class AppraiseController {
     this.types = ['日', '周', '月', '季'];
     this.levels = ['A', 'B', 'C', 'D', 'X'];
     this.appraise = {
-      appraised_date: new Date(2015, 4, 15)
+      appraised_date: new Date()
     };
 
     this.day_appraises_signal = true;
