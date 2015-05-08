@@ -1,5 +1,7 @@
 'use strict';
 
+import moment from 'moment'
+
 class TraineeService {
 
   constructor($http) {
@@ -19,6 +21,11 @@ class TraineeService {
       .then(result => result.data)
   }
 
+  has_appraised(trainee_id, appraised_date) {
+
+   return this.http.post('/api/trainees/' + trainee_id + '/appraise', appraised_date)
+  }
+
   create_user(user) {
 
     let create_date = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -32,6 +39,13 @@ class TraineeService {
       phone_number: user.phone_number,
       current_group: '554983027cb6030c4268d059'
     }).then(result => result.data)
+  }
+
+
+  add_appraise(appraise, trainee_id) {
+
+    return this.http.put('api/trainees/' + trainee_id + '/appraise', appraise)
+      .then(result => result.data)
   }
 }
 
