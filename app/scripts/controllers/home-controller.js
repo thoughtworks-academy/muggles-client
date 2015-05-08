@@ -13,7 +13,8 @@ class HomeController {
       console.log(trainees.data);
 
       this.trainees = trainees.data.trainees;
-      this.userName = trainees.data.currentUserName;
+      this.trainerName = trainees.data.currentTrainerName;
+      console.log(this.trainerName);
     }));
   }
 
