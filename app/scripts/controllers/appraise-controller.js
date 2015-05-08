@@ -1,11 +1,12 @@
 'use strict';
 
 import moment from 'moment'
-
+let self;
 class AppraiseController {
 
-  constructor($routeParams, traineeService) {
+  constructor($routeParams, traineeService, dateService) {
 
+    self = this;
     this.trainee_id = $routeParams.trainee_id;
     this.traineeService = traineeService;
 
@@ -20,20 +21,41 @@ class AppraiseController {
     this.month_appraises_signal = false;
     this.season_appraises_signal = false;
 
+    let appraises;
     traineeService.find_trainee_by_id($routeParams.trainee_id)
       .then(resp => {
 
         this.trainee_name = resp.data.username;
         this.groups = resp.data.groups;
 
-        let appraises = resp.data.appraises;
-
+        appraises = resp.data.appraises;
         this.day_appraises = appraises.filter(appraise => appraise.type === '日');
-        this.week_appraises = appraises.filter(appraise => appraise.type === '周');
-        this.month_appraises = appraises.filter(appraise => appraise.type === '月');
-        this.season_appraises = appraises.filter(appraise => appraise.type === '季');
+
+        dateService.format_date(this.day_appraises, 'YYYY-MM-DD');
+        return appraises.filter(appraise => appraise.type === '周');
       })
+      .then(week_appraises => {
+
+        dateService.format_date(week_appraises, 'W');
+        this.week_appraises = week_appraises;
+        return appraises.filter(appraise => appraise.type === '月')
+      })
+      .then(month_appraises => {
+
+        dateService.format_date(month_appraises, 'YYYY-MM');
+        this.month_appraises = month_appraises;
+        return appraises.filter(appraise => appraise.type === '季')
+      })
+      .then(season_appraises => {
+
+        season_appraises.forEach(season_appraise => {
+          season_appraise.appraised_date = '夏季'
+        });
+        this.season_appraises = season_appraises;
+      })
+
   }
+
 
   submit_appraise_information(appraise) {
 
@@ -99,5 +121,5 @@ class AppraiseController {
   }
 }
 
-AppraiseController.$inject = ['$routeParams', 'traineeService'];
+AppraiseController.$inject = ['$routeParams', 'traineeService', 'dateService'];
 export { AppraiseController }
