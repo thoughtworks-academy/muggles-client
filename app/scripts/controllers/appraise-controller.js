@@ -21,7 +21,7 @@ class AppraiseController {
 
         this.trainee_name = resp.data.username;
         this.groups = resp.data.groups;
-        
+
         let appraises = resp.data.appraises;
         this.day_appraises = appraises.filter(appraise => appraise.type === '日');
         this.week_appraises = appraises.filter(appraise => appraise.type === '周');

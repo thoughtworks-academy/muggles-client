@@ -1,10 +1,10 @@
 .ui.page.grid
   .sixteen.wide.column
     h2.ui.inverted.header.black Trainer考评页
-  .one.wide.column &nbsp;
-  .fourteen.wide.column
-    span 组别
-      select.ui.dropdown(ng-model="vm.appraise.group" ng-options="group for group in vm.groups")
+  .sixteen.wide.column
+    span 组别：
+      select.ui.dropdown(ng-model="vm.appraise.group" ng-options="group.name for group in vm.groups")
+        option(value="") 请选择...
     span 评价类型：
       select.ui.dropdown(ng-model="vm.appraise.type" ng-options="type for type in vm.types ")
         option(value="") 请选择...
