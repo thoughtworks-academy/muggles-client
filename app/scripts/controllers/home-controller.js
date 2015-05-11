@@ -12,15 +12,26 @@ class HomeController {
     }));
   }
 
-  add_date_appraise(appraise_one, trainee, appraise) {
-    console.log(appraise);
+  add_date_appraise(appraise, trainee, date) {
+    appraise.appraised_date = date;
+    appraise.type = '日';
     this.homeService.add_appraise(appraise, trainee);
   }
 
-  add_date_appraises(trainees, appraise) {
-    console.log(appraise);
-    this.homeService.add_appraises(trainees);
+  add_date_appraises(trainees, date) {
+    var appraise = {};
+    appraise.appraised_date = date;
+    appraise.type = '日';
+    this.homeService.add_appraises(trainees, appraise);
   }
+
+  add_week_appraise(appraise, trainee, date) {
+    appraise.appraised_date = date;
+    appraise.type = '周';
+    this.homeService.add_appraise(appraise, trainee);
+  }
+
+  //add_week_appraise()
 
   type_change(type) {
     switch (type) {
