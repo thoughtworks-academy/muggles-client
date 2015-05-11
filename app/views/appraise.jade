@@ -1,8 +1,21 @@
 .ui.page.grid
-  .six.wide.column
+  .sixteen.wide.column
     h2.ui.inverted.header.black Trainer考评页
-  .ten.wide.column
-    h3.ui.inverted.header.black jjjjjjjjjjjjjj
+  .sixteen.wide.column
+    span 组别：
+      select.ui.dropdown(ng-model="vm.appraise.group" ng-options="group.name for group in vm.groups" required)
+        option(value="") 请选择...
+    span 评价类型：
+      select.ui.dropdown(ng-model="vm.appraise.type" ng-options="type for type in vm.types" required)
+        option(value="") 请选择...
+    span 评价等级：
+      select.ui.dropdown(ng-model="vm.appraise.level" ng-options="level for level in vm.levels" required)
+        option(value="") 请选择...
+    span#date.center-display 选择日期：
+      input(type="date" placeholder="2015-5-10" ng-model="vm.appraise.appraised_date" required)
+    span.center-display 填写评语：
+      input(type="text" placeholder=" 表现不错..." ng-model="vm.appraise.comment")
+    .positive.ui.button(ng-click="vm.submit_appraise_information(vm.appraise)") 确认
 .ui.grid(ng-controller="appraiseController")
   .two.wide.column &nbsp;
   .two.wide.column

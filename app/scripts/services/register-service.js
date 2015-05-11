@@ -1,6 +1,5 @@
 'use strict';
 
-import moment from 'moment'
 const CODE_LENGTH = 4;
 
 class RegisterService {
