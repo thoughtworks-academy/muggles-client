@@ -1,9 +1,6 @@
 .ui.grid
   .two.wide.column
   .eleven.wide.column
-    //span Hi，
-    //span#current-user {{vm.trainerName}}
-    //span 欢迎来到 Muggles 考评系统
   .three.wide.column
     a(ng-click="vm.logout()")#logout 注销
   .one.wide.column
@@ -43,7 +40,6 @@
           td
             .ui.primary.button(ng-click="vm.add_month_appraise(trainee.appraise, trainee, vm.date)") 添加
 
-    span "{{vm.date | date: 'yyyy-MM'}}"
     .ui.primary.button(ng-click="vm.add_month_appraises(vm.trainees, vm.date)") 全部添加
   //ui.dimmer.modals.page.transition.visible.active#modal1
   //  .ui.fullscreen.modal.transition.visible.active.scrolling

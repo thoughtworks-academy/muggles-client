@@ -38,6 +38,19 @@ class HomeController {
     this.homeService.add_appraises(trainees, appraise);
   }
 
+  add_month_appraise(appraise, trainee, date) {
+    appraise.appraised_date = date;
+    appraise.type = '月';
+    this.homeService.add_appraise(appraise, trainee);
+  }
+
+  add_month_appraises(trainees, date){
+    var appraise = {};
+    appraise.appraised_date = date;
+    appraise.type = '月';
+    this.homeService.add_appraises(trainees, appraise);
+  }
+
   type_change(type) {
     switch (type) {
       case '日':
