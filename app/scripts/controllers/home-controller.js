@@ -31,7 +31,12 @@ class HomeController {
     this.homeService.add_appraise(appraise, trainee);
   }
 
-  //add_week_appraise()
+  add_week_appraises(trainees, date){
+    var appraise = {};
+    appraise.appraised_date = date;
+    appraise.type = '周';
+    this.homeService.add_appraises(trainees, appraise);
+  }
 
   type_change(type) {
     switch (type) {

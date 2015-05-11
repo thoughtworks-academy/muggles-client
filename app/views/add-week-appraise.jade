@@ -38,10 +38,10 @@
               textarea(type="text" placeholder="请输入评语..." ng-model="trainee.appraise.comment")
               i.inverted.search.icon
           td
-            .ui.primary.button(ng-click="vm.add_date_appraise(trainee.appraise, trainee, vm.date)") 添加
+            .ui.primary.button(ng-click="vm.add_week_appraise(trainee.appraise, trainee, vm.date)") 添加
 
     span "{{vm.date | date: 'yyyy-MM'}}"
-    .ui.primary.button(ng-click="vm.add_date_appraises(vm.trainees, vm.date)") 全部添加
+    .ui.primary.button(ng-click="vm.add_week_appraises(vm.trainees, vm.date)") 全部添加
   //ui.dimmer.modals.page.transition.visible.active#modal1
   //  .ui.fullscreen.modal.transition.visible.active.scrolling
   //    i.close.icon
