@@ -1,0 +1,56 @@
+.ui.grid
+  .two.wide.column
+  .eleven.wide.column
+  .three.wide.column
+    a(ng-click="vm.logout()")#logout 注销
+  .one.wide.column
+  .three.wide.column#group-menu-column
+    .ui.wide.vertical.menu
+      a.active.item
+        label group1
+      a.item
+        label group2
+      a.item
+        label group3
+  .ten.wide.column
+    span 选择日期:
+      input(type="week" placeholder="YYYY-W##" ng-model="vm.date" required)
+    table.ui.table
+      thead
+        tr
+          th
+            span 姓名
+          th
+            span 评价等级
+          th
+            span 评语
+          th
+            span 添加
+      tbody
+        tr(ng-repeat="trainee in vm.trainees")
+          td
+            span {{trainee.username}}
+          td
+            select.ui.dropdown(ng-model="trainee.appraise.level" ng-options="level for level in vm.levels")
+              option(value="") 请选择...
+          td
+            .ui.icon.input
+              textarea(type="text" placeholder="请输入评语..." ng-model="trainee.appraise.comment")
+              i.inverted.search.icon
+          td
+            .ui.primary.button(ng-click="vm.add_week_appraise(trainee.appraise, trainee, vm.date)") 添加
+
+    .ui.primary.button(ng-click="vm.add_week_appraises(vm.trainees, vm.date)") 全部添加
+  //ui.dimmer.modals.page.transition.visible.active#modal1
+  //  .ui.fullscreen.modal.transition.visible.active.scrolling
+  //    i.close.icon
+  //    .header 填写评价
+  //    .content
+  //      .ui.form
+  //        h4.ui.dividing.header 请填写该学生的评价理由
+  //        .field
+  //          label 评价详情
+  //          textarea
+  //    .actions
+  //      .ui.button 取消
+  //      .ui.green.button 确定

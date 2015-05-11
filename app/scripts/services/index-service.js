@@ -2,7 +2,7 @@
 
 class IndexService {
 
-  constructor($http){
+  constructor($http) {
     this.http = $http;
   }
 
@@ -10,7 +10,7 @@ class IndexService {
     return this.http.get('/api/sessions').then(result => result);
   }
 
-  logout(){
+  logout() {
     return this.http.delete('api/sessions').then(result => result);
   }
 }

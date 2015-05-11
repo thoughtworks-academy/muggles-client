@@ -13,6 +13,6 @@ angular.module(moduleName, [])
   .controller('loginController', LoginController)
   .controller('homeController', HomeController)
   .controller('appraiseController', AppraiseController)
-  .controller('indexController',IndexController);
+  .controller('indexController', IndexController);
 
 export { moduleName }

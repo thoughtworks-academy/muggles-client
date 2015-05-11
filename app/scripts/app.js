@@ -34,8 +34,21 @@ angular
         controller: 'appraiseController',
         controllerAs: 'vm'
       }).
-      when('/add', {
-        templateUrl: '.tmp/views/add-appraise.html',
+      when('/add_date_appraise', {
+        templateUrl: '.tmp/views/add-date-appraise.html',
+        controller: 'homeController',
+        controllerAs: 'vm'
+      }).
+      when('/add_week_appraise', {
+        templateUrl: '.tmp/views/add-week-appraise.html',
+        controller: 'homeController',
+        controllerAs: 'vm'
+      }).when('/add_month_appraise', {
+        templateUrl: '.tmp/views/add-month-appraise.html',
+        controller: 'homeController',
+        controllerAs: 'vm'
+      }).when('/add_season_appraise', {
+        templateUrl: '.tmp/views/add-season-appraise.html',
         controller: 'homeController',
         controllerAs: 'vm'
       }).
