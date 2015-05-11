@@ -10,7 +10,6 @@ class HomeController {
     this.location = $location;
     homeService.get_trainee().then((trainees => {
       this.trainees = trainees.data.trainees;
-      this.userName = trainees.data.currentUserName;
     }));
   }
 
@@ -43,10 +42,6 @@ class HomeController {
       default :
         console.log('nothing');
     }
-  }
-
-  logout(){
-    this.homeService.logout().then(() => this.location.path('/login'))
   }
 }
 
