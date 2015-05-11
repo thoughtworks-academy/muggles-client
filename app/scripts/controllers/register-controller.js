@@ -89,7 +89,7 @@ class RegisterController {
       this.name_error_signal = false;
       this.name_correct_signal = false;
       result = false;
-    } else if(!this.registerService.verify_name(name)) {
+    } else if (!this.registerService.verify_name(name)) {
 
       this.name_required_signal = false;
       this.name_error_signal = true;
@@ -117,7 +117,7 @@ class RegisterController {
       this.email_correct_signal = false;
 
       result = false;
-    } else if(!this.registerService.verify_email(email)) {
+    } else if (!this.registerService.verify_email(email)) {
 
       this.email_required_signal = false;
       this.email_error_signal = true;
@@ -158,7 +158,7 @@ class RegisterController {
       this.password_error_signal = false;
       this.password_correct_signal = false;
       result = false;
-    } else if(!this.registerService.verify_password(password)) {
+    } else if (!this.registerService.verify_password(password)) {
 
       this.password_required_signal = false;
       this.password_error_signal = true;
@@ -183,7 +183,7 @@ class RegisterController {
       this.repeat_password_error_signal = false;
       this.repeat_password_correct_signal = false;
       result = false;
-    } else if(!this.registerService.verify_repeat_password(password, repeat_password)) {
+    } else if (!this.registerService.verify_repeat_password(password, repeat_password)) {
 
       this.repeat_password_required_signal = false;
       this.repeat_password_error_signal = true;
@@ -208,7 +208,7 @@ class RegisterController {
       this.phone_number_error_signal = false;
       this.phone_number_correct_signal = false;
       result = false;
-    } else if(!this.registerService.verify_phone_number(phone_number)) {
+    } else if (!this.registerService.verify_phone_number(phone_number)) {
 
       this.phone_number_required_signal = false;
       this.phone_number_error_signal = true;
@@ -308,7 +308,7 @@ class RegisterController {
     result = this.validate_invitation_code(current_user.invitation_code);
     result = this.validate_verification_code(current_user.input_code, verification_code);
 
-    if(result) {
+    if (result) {
       this.traineeService.create_user(user)
         .then(data => {
 

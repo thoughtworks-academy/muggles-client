@@ -15,7 +15,7 @@ angular.module(moduleName, [])
   .service('registerService', RegisterService)
   .service('invitationService', InvitationService)
   .service('traineeService', TraineeService)
-  .service('indexService',IndexService);
+  .service('indexService', IndexService);
 
 export { moduleName }
 

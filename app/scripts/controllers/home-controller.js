@@ -1,7 +1,7 @@
 'use strict';
 class HomeController {
 
-  constructor(homeService,$location) {
+  constructor(homeService, $location) {
     this.types = ['日', '周', '月', '季'];
     this.levels = ['A', 'B', 'C', 'D', 'X'];
     this.homeService = homeService;
@@ -31,7 +31,7 @@ class HomeController {
     this.homeService.add_appraise(appraise, trainee);
   }
 
-  add_week_appraises(trainees, date){
+  add_week_appraises(trainees, date) {
     var appraise = {};
     appraise.appraised_date = date;
     appraise.type = '周';
@@ -44,7 +44,7 @@ class HomeController {
     this.homeService.add_appraise(appraise, trainee);
   }
 
-  add_month_appraises(trainees, date){
+  add_month_appraises(trainees, date) {
     var appraise = {};
     appraise.appraised_date = date;
     appraise.type = '月';
@@ -58,7 +58,7 @@ class HomeController {
     this.homeService.add_appraise(appraise, trainee);
   }
 
-  add_season_appraises(trainees, date){
+  add_season_appraises(trainees, date) {
     var appraise = {};
     appraise.appraised_date = date;
     appraise.type = '季';
@@ -89,5 +89,5 @@ class HomeController {
   //}
 }
 
-HomeController.$inject = ['homeService','$location'];
+HomeController.$inject = ['homeService', '$location'];
 export { HomeController };

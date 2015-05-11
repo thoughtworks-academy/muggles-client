@@ -19,7 +19,7 @@ class HomeService {
 
   add_appraises(trainees, appraise) {
     console.log(appraise);
-    this.$http.put('api/trainees/appraises', {trainees :trainees, appraise: appraise}).then(result => {
+    this.$http.put('api/trainees/appraises', {trainees: trainees, appraise: appraise}).then(result => {
       console.log(result);
     });
   }
