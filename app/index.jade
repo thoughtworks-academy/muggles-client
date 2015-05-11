@@ -14,5 +14,13 @@ html
     script(src="config.js")
     script.
       System.import("../app/scripts/app")
-  body(ng-app="Muggles")
+  body(ng-app="Muggles" ng-controller='indexController as vm')
+    .ui.grid
+      .two.wide.column
+      .eleven.wide.column
+        span(ng-show="vm.show_user_message_signal") Hi,
+        span.userName(ng-show="vm.show_user_name_signal") {{vm.trainerName}}
+        span 欢迎来到 Muggles 考评系统
+      .three.wide.column
+        a(ng-click="vm.logout()" ng-show="vm.show_logout_signal")#logout 注销
     .content(ng-view="")

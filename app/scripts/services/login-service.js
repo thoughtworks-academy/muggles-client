@@ -1,9 +1,8 @@
 'use strict';
 
 class LoginService {
-  constructor($http, $location) {
+  constructor($http) {
     this.http = $http;
-    this.location = $location;
   }
 
   login(user) {

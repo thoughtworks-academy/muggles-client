@@ -32,12 +32,12 @@ gulp.task('less_compiler', function() {
 gulp.task('serve', ['less_compiler', 'jade_compiler'], function() {
 
   gulp.watch([
-    './app/views/**/*.jade',
-    './app/styles/**/*.less'
+    '**/*.jade',
+    '**/*.less'
   ]).on('change', reload);
 
-  gulp.watch('./app/views/**/*.jade', ['jade_compiler']);
-  gulp.watch('./app/styles/**/*.less', ['less_compiler'])
+  gulp.watch('**/*.jade', ['jade_compiler']);
+  gulp.watch('**/*.less', ['less_compiler'])
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));

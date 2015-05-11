@@ -18,9 +18,7 @@ class HomeService {
       });
   }
 
-  logout(){
-    return this.$http.delete('api/trainers').then(result => result);
-  }
+
 }
 
 HomeService.$inject = ['$http'];

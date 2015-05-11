@@ -2,7 +2,7 @@
   .two.wide.column
   .eleven.wide.column
     span Hi，
-    span#current-user {{vm.userName}}
+    span#current-user {{vm.trainerName}}
     span 欢迎来到 Muggles 考评系统
   .three.wide.column
     a(ng-click="vm.logout()")#logout 注销
@@ -17,10 +17,10 @@
         label group3
   .ten.wide.column
     span 评价类型:
-      select.ui.dropdown(ng-model="trainee.appraise.type" ng-options="type for type in vm.types ")
+      select.ui.dropdown(ng-model="trainee.appraise.type" ng-options="type for type in vm.types" ng-change="vm.type_change(trainee.appraise.type)")
         option(value="") 请选择...
     span 选择日期:
-      input(type="date" placeholder="2015-5-10" required ng-model="trainee.appraise.date")
+      input(type="{{vm.date_type}}" placeholder="一/二/三/四" required ng-model="trainee.appraise.date")
     table.ui.table
       thead
         tr
@@ -30,6 +30,8 @@
             span 评价等级
           th
             span 评语
+          th
+            span 添加
       tbody
         tr(ng-repeat="trainee in vm.trainees")
           td
@@ -41,4 +43,6 @@
             .ui.icon.input
               input(type="text" placeholder="请输入评语..." ng-model='trainee.appraise.comment')
               i.inverted.search.icon
-    .ui.primary.button(ng-click="vm.add_appraise(trainee.appraise, trainee)") 确认添加
+          td
+            .ui.primary.button(ng-click="vm.add_appraise(trainee.appraise, trainee)") 添加
+    .ui.primary.button(ng-click="vm.add_appraise(trainee.appraise, trainee)") 全部添加
