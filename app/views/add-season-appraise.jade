@@ -1,9 +1,6 @@
 .ui.grid
   .two.wide.column
   .eleven.wide.column
-    span Hi，
-    span#current-user {{vm.trainerName}}
-    span 欢迎来到 Muggles 考评系统
   .three.wide.column
     a(ng-click="vm.logout()")#logout 注销
   .one.wide.column
@@ -16,11 +13,8 @@
       a.item
         label group3
   .ten.wide.column
-    span 评价类型:
-      select.ui.dropdown(ng-model="trainee.appraise.type" ng-options="type for type in vm.types" ng-change="vm.type_change(trainee.appraise.type)")
-        option(value="") 请选择...
     span 选择日期:
-      input(type="{{vm.date_type}}" placeholder="一/二/三/四" required ng-model="trainee.appraise.date")
+      input(type="date" placeholder="一/二/三/四" ng-model="vm.date" required)
     table.ui.table
       thead
         tr
@@ -41,8 +35,23 @@
               option(value="") 请选择...
           td
             .ui.icon.input
-              input(type="text" placeholder="请输入评语..." ng-model='trainee.appraise.comment')
+              textarea(type="text" placeholder="请输入评语..." ng-model="trainee.appraise.comment")
               i.inverted.search.icon
           td
-            .ui.primary.button(ng-click="vm.add_appraise(trainee.appraise, trainee)") 添加
-    .ui.primary.button(ng-click="vm.add_appraises(vm.trainees)") 全部添加
+            .ui.primary.button(ng-click="vm.add_season_appraise(trainee.appraise, trainee, vm.date)") 添加
+
+    span "{{vm.date | date: 'yyyy-MM'}}"
+    .ui.primary.button(ng-click="vm.add_season_appraises(vm.trainees, vm.date)") 全部添加
+  //ui.dimmer.modals.page.transition.visible.active#modal1
+  //  .ui.fullscreen.modal.transition.visible.active.scrolling
+  //    i.close.icon
+  //    .header 填写评价
+  //    .content
+  //      .ui.form
+  //        h4.ui.dividing.header 请填写该学生的评价理由
+  //        .field
+  //          label 评价详情
+  //          textarea
+  //    .actions
+  //      .ui.button 取消
+  //      .ui.green.button 确定
