@@ -21,9 +21,10 @@ class TraineeService {
       .then(result => result.data)
   }
 
-  has_appraised(trainee_id, appraised_date) {
+  has_appraised(appraise, trainee_id) {
 
-   return this.http.post('/api/trainees/' + trainee_id + '/appraise', appraised_date)
+   return this.http.post('/api/trainees/' + trainee_id + '/appraise', {appraise: appraise})
+    .then(result => result.data);
   }
 
   create_user(user) {
