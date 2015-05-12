@@ -42,7 +42,6 @@ class TraineeService {
     }).then(result => result.data)
   }
 
-
   add_appraise(appraise, trainee_id) {
 
     return this.http.put('api/trainees/' + trainee_id + '/appraise', appraise)
