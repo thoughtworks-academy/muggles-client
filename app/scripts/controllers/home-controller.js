@@ -1,12 +1,15 @@
 'use strict';
 class HomeController {
 
-  constructor(homeService, $location) {
+  constructor(homeService, $location, $timeout) {
     this.types = ['日', '周', '月', '季'];
     this.levels = ['A', 'B', 'C', 'D', 'X'];
     this.homeService = homeService;
     this.date = new Date();
     this.location = $location;
+    this.timeout = $timeout;
+    this.add_error = '';
+    this.add_success = '';
     homeService.get_trainee().then((trainees => {
       this.trainees = trainees.data.trainees;
     }));
@@ -15,7 +18,18 @@ class HomeController {
   add_date_appraise(appraise, trainee, date) {
     appraise.appraised_date = date;
     appraise.type = '日';
-    this.homeService.add_appraise(appraise, trainee);
+    this.homeService.add_appraise(appraise, trainee).then(result => {
+      console.log(result);
+      //show_message(result.data.message, 1000);
+      this.add_success = result.data.message;
+      this.is_add_success = true;
+      this.timeout(() => {
+        this.add_success = "";
+        this.is_add_success = false;
+      }, 1000);
+    }, error => {
+      show_message(result.data.message, 10);
+    });
   }
 
   add_date_appraises(trainees, date) {
@@ -86,8 +100,17 @@ class HomeController {
 
   //show_modal() {
   //  this.show();
-  //}
+  //}TIMEOUT.get(this)(() => {
+//    this.addFailed = false;
+//}, 2500);
+  show_message(message, time) {
+    this.timeout(() => {
+      this.add_success = message;
+      this.is_add_success = true;
+    }, time);
+    console.log('添加' + type + '评价成功');
+  }
 }
 
-HomeController.$inject = ['homeService', '$location'];
+HomeController.$inject = ['homeService', '$location', '$timeout'];
 export { HomeController };

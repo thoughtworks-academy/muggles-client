@@ -1,8 +1,4 @@
 .ui.grid
-  .two.wide.column
-  .eleven.wide.column
-  .three.wide.column
-    a(ng-click="vm.logout()")#logout 注销
   .one.wide.column
   .three.wide.column#group-menu-column
     .ui.wide.vertical.menu
@@ -12,9 +8,14 @@
         label group2
       a.item
         label group3
-  .ten.wide.column
+  .two.wide.column
     span 选择日期:
       input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required)
+  .ten.wide.column
+    .ui.red.message(ng-show="vm.is_add_error") {{vm.add_error}}
+    .ui.green.message(ng-show="vm.is_add_success") {{vm.add_success}}
+  .two.wide.column
+  .twelve.wide.column
     table.ui.table
       thead
         tr
