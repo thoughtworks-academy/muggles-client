@@ -5,9 +5,10 @@ const PASSWORD_IS_REQUIRED = '密码不能为空';
 
 class LoginController {
 
-  constructor(loginService, $location) {
+  constructor(loginService, $location ,$window) {
     this.loginService = loginService;
     this.location = $location;
+    this.window = $window;
     this.email_required_signal = false;
     this.email_is_required = EMAIL_IS_REQUIRED;
 
@@ -48,10 +49,12 @@ class LoginController {
           this.login_message_signal = true;
           this.login_message = resp.message;
         } else {
+
+          this.window.location.reload();
           this.location.path('/home');
         }
       })
   }
 }
-LoginController.$inject = ['loginService', '$location'];
+LoginController.$inject = ['loginService', '$location', '$window'];
 export { LoginController };
