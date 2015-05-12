@@ -77,13 +77,16 @@ class AppraiseController {
     this.traineeService.has_appraised(current_appraise, this.trainee_id)
       .then(resp => {
 
-        console.log(resp.data);
         if(!resp.data) {
-          return self.traineeService.add_appraise(current_appraise, self.trainee_id)
-        }
-      })
-      .then(has_appraised => {
+          this.traineeService.add_appraise(current_appraise, this.trainee_id)
+            .then(result => {
 
+              console.log(result);
+            })
+        } else {
+          //message show
+          console.log('message show')
+        }
       });
   }
 
