@@ -20,7 +20,6 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '日';
     this.homeService.add_appraise(appraise, trainee).then(result => {
-      console.log(result);
       this.show_message(result);
     });
   }
@@ -30,7 +29,6 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '日';
     this.homeService.add_appraises(trainees, appraise).then(result => {
-      console.log(result);
       this.add_success = result.data.message;
       this.is_add_success = true;
       this.timeout(() => {
@@ -80,7 +78,6 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '月';
     this.homeService.add_appraise(appraise, trainee).then(result => {
-      console.log(result);
       this.show_message(result);
     });
   }
@@ -90,7 +87,6 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '月';
     this.homeService.add_appraises(trainees, appraise).then(result => {
-      console.log(result);
       this.add_success = result.data.message;
       this.is_add_success = true;
       this.timeout(() => {
@@ -112,7 +108,6 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '季';
     this.homeService.add_appraise(appraise, trainee).then(result => {
-      console.log(result);
       this.show_message(result);
     });
   }
@@ -122,7 +117,6 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '季';
     this.homeService.add_appraises(trainees, appraise).then(result => {
-      console.log(result);
       this.add_success = result.data.message;
       this.is_add_success = true;
       this.timeout(() => {
