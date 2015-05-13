@@ -5,15 +5,13 @@ import moment from 'moment'
 const DAY = '日';
 const WEEK = '周';
 const MONTH = '月';
-const SEASON = '夏';
+const SEASON = '季';
 const SEASON_TYPE = '夏季';
 
-let self;
 class AppraiseController {
 
   constructor($routeParams, traineeService, dateService) {
 
-    self = this;
     this.trainee_id = $routeParams.trainee_id;
     this.traineeService = traineeService;
 
