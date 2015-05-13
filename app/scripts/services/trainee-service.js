@@ -42,10 +42,15 @@ class TraineeService {
     }).then(result => result.data)
   }
 
+  create_appraise(appraise, trainee_id){
+
+    return this.http.put('/api/trainees/' + trainee_id + '/appraise', appraise)
+      .then(result => result.data)
+  }
 
   add_appraise(appraise, trainee_id) {
 
-    return this.http.put('api/trainees/' + trainee_id + '/appraise', appraise)
+    return this.http.put('/api/trainees/' + trainee_id + '/appraise', appraise)
       .then(result => result.data)
   }
 }
