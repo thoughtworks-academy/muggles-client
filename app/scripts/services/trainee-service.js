@@ -23,7 +23,7 @@ class TraineeService {
 
   has_appraised(appraise, trainee_id) {
 
-   return this.http.post('/api/trainees/' + trainee_id + '/appraise', {appraise: appraise})
+   return this.http.get('/api/trainees/' + trainee_id + '/appraise', {appraise: appraise})
     .then(result => result.data);
   }
 
@@ -40,12 +40,6 @@ class TraineeService {
       phone_number: user.phone_number,
       current_group: '554983027cb6030c4268d059'
     }).then(result => result.data)
-  }
-
-  create_appraise(appraise, trainee_id){
-
-    return this.http.put('/api/trainees/' + trainee_id + '/appraise', appraise)
-      .then(result => result.data)
   }
 
   add_appraise(appraise, trainee_id) {
