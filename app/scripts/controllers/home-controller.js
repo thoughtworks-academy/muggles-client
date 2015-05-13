@@ -21,23 +21,7 @@ class HomeController {
     appraise.type = '日';
     this.homeService.add_appraise(appraise, trainee).then(result => {
       console.log(result);
-
-      if(result.date) {
-        this.add_success = result.data.message;
-        this.is_add_success = true;
-        this.timeout(() => {
-          this.add_success = "";
-          this.is_add_success = false;
-        }, 1000);
-      }else {
-        this.add_error = result.data.message;
-        this.is_add_error = true;
-        this.timeout(() => {
-          this.add_error = "";
-          this.is_add_error = false;
-        }, 1000);
-      }
-
+      this.show_message(result);
     });
   }
 
@@ -67,19 +51,7 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '周';
     this.homeService.add_appraise(appraise, trainee).then(result => {
-      this.add_success = result.data.message;
-      this.is_add_success = true;
-      this.timeout(() => {
-        this.add_success = "";
-        this.is_add_success = false;
-      }, 1000);
-    }, error => {
-      this.add_error = result.data.message;
-      this.is_add_error = true;
-      this.timeout(() => {
-        this.add_error = "";
-        this.is_add_error = false;
-      }, 1000);
+      this.show_message(result);
     });
   }
 
@@ -109,19 +81,7 @@ class HomeController {
     appraise.type = '月';
     this.homeService.add_appraise(appraise, trainee).then(result => {
       console.log(result);
-      this.add_success = result.data.message;
-      this.is_add_success = true;
-      this.timeout(() => {
-        this.add_success = "";
-        this.is_add_success = false;
-      }, 1000);
-    }, error => {
-      this.add_error = result.data.message;
-      this.is_add_error = true;
-      this.timeout(() => {
-        this.add_error = "";
-        this.is_add_error = false;
-      }, 1000);
+      this.show_message(result);
     });
   }
 
@@ -153,19 +113,7 @@ class HomeController {
     appraise.type = '季';
     this.homeService.add_appraise(appraise, trainee).then(result => {
       console.log(result);
-      this.add_success = result.data.message;
-      this.is_add_success = true;
-      this.timeout(() => {
-        this.add_success = "";
-        this.is_add_success = false;
-      }, 1000);
-    }, error => {
-      this.add_error = result.data.message;
-      this.is_add_error = true;
-      this.timeout(() => {
-        this.add_error = "";
-        this.is_add_error = false;
-      }, 1000);
+      this.show_message(result);
     });
   }
 
@@ -189,6 +137,26 @@ class HomeController {
         this.is_add_error = false;
       }, 1000);
     });
+  }
+
+  show_message(result) {
+    if(result.data.data) {
+
+      this.add_success = result.data.message;
+      this.is_add_success = true;
+      this.timeout(() => {
+        this.add_success = "";
+        this.is_add_success = false;
+      }, 1000);
+    }else {
+
+      this.add_error = result.data.message;
+      this.is_add_error = true;
+      this.timeout(() => {
+        this.add_error = "";
+        this.is_add_error = false;
+      }, 1000);
+    }
   }
 
   type_change(type) {
