@@ -70,16 +70,17 @@ class AppraiseController {
       comment: appraise.comment,
       group: appraise.group._id,
       appraiser: appraise.appraiser,
-      appraised_date: moment(appraise.appraised_date).format('YYYY-MM-DD HH:mm:ss'),
-      create_date: moment().format('YYYY-MM-DD HH:mm:ss')
+      appraised_date: appraise.appraised_date,
+      create_date: new Date()
     };
 
     this.traineeService.create_appraise(current_appraise, this.trainee_id)
       .then(resp => {
-        console.log(resp.data);
 
-        if(resp.data) {
+        if(!resp.data) {
           this.rewrite_appraise_signal = true;
+        } else {
+          console.log('success');
         }
       });
   }
@@ -92,10 +93,9 @@ class AppraiseController {
       comment: appraise.comment,
       group: appraise.group._id,
       appraiser: appraise.appraiser,
-      appraised_date: moment(appraise.appraised_date).format('YYYY-MM-DD HH:mm:ss'),
-      create_date: moment().format('YYYY-MM-DD HH:mm:ss')
+      appraised_date: appraise.appraised_date,
+      create_date: new Date()
     };
-    //发送post请求覆盖之前的评论
     this.traineeService.update_appraise(current_appraise, this.trainee_id)
       .then(resp => {
         console.log(resp.data);
