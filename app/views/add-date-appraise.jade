@@ -31,22 +31,26 @@
               option(value="") 请选择...
           td
             .ui.icon.input
-              textarea(type="text" placeholder="请输入评语..." ng-model="trainee.appraise.comment")
+              input(type="text" placeholder="请输入评语..." ng-model="trainee.appraise.comment" ng-focus="vm.show_modal()")
               i.inverted.search.icon
           td
             .ui.primary.button(ng-click="vm.add_date_appraise(trainee.appraise, trainee, vm.date)") 添加
 
     .ui.primary.button(ng-click="vm.add_date_appraises(vm.trainees, vm.date)") 全部添加
-   //ui.dimmer.modals.page.transition.visible.active#modal1
-  //  .ui.fullscreen.modal.transition.visible.active.scrolling
-  //    i.close.icon
-  //    .header 填写评价
-  //    .content
-  //      .ui.form
-  //        h4.ui.dividing.header 请填写该学生的评价理由
-  //        .field
-  //          label 评价详情
-  //          textarea
-  //    .actions
-  //      .ui.button 取消
-  //      .ui.green.button 确定
+
+    .ui#epiceditor
+
+
+    //.ui.dimmer.modals.page.transition.hidden(ng-model="show_modal")
+    //  .ui.fullscreen.modal.transition.scrolling
+    //    i.close.icon
+    //    .header 填写评价
+    //    .content
+    //      .ui.form
+    //        h4.ui.dividing.header 请填写该学生的评价理由
+    //        .field
+    //          label 评价详情
+    //          textarea
+    //    .actions
+    //      .ui.button 取消
+    //      .ui.green.button 确定
