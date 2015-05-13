@@ -23,7 +23,7 @@ class TraineeService {
 
   has_appraised(appraise, trainee_id) {
 
-   return this.http.get('/api/trainees/' + trainee_id + '/appraise', {appraise: appraise})
+   return this.http.post('/api/trainees/' + trainee_id + '/appraise', {appraise: appraise})
     .then(result => result.data);
   }
 
