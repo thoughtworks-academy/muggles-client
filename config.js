@@ -15,6 +15,7 @@ System.config({
 
 System.config({
   "map": {
+    "epiceditor": "github:OscarGodson/EpicEditor@0.2.3",
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-mocks": "github:angular/bower-angular-mocks@1.3.15",
     "angular-route": "github:angular/bower-angular-route@1.3.15",
@@ -44,6 +45,9 @@ System.config({
     },
     "npm:moment@2.10.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "github:OscarGodson/EpicEditor@0.2.3": {
+      "epiceditor": "github:OscarGodson/EpicEditor@0.2.3"
     }
   }
 });
