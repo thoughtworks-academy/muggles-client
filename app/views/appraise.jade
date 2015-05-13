@@ -2,10 +2,10 @@
   .six.wide.column
     h2.ui.inverted.header.black Trainer考评页
   .ten.wide.column
-    .ui.content#message(ng-show="vm.rewrite_appraise_signal") 您已对该生发表评论，修改评论点击【确认】，否则点击【取消】
-      .positive.ui.button(ng-click="vm.submit_rewrite_appraise(vm.appraise)") 确认
+    .ui.content#message(ng-show="vm.rewrite_appraise_signal") 您已对该生发表评论，修改评论点击【确认】，否则点击【取消】&nbsp;
+      .positive.ui.button(ng-click="vm.confirm_rewrite_appraise(vm.appraise)") 确认
       .negative.ui.button(ng-click="vm.cancel_rewrite_appraise()") 取消
-  .sixteen.wide.column &nbsp;
+    .ui.content#success-message(ng-show="vm.add_appraise_success_signal") 添加成功
   .sixteen.wide.column
     span 组别：
       select.ui.dropdown(ng-model="vm.appraise.group" ng-options="group.name for group in vm.groups" required)
@@ -83,7 +83,7 @@
           td
             span {{appraise.group.name}}
           td
-            span {{appraise.appraised_date}}
+            span 第{{appraise.appraised_date}}周
       tbody(ng-show="vm.month_appraises_signal")
         tr(ng-repeat="appraise in vm.month_appraises")
           td
