@@ -2,6 +2,7 @@
 
 import angular from 'angular'
 import ngRoute from 'angular-route'
+import epiceditor from 'epiceditor'
 
 import { services } from './services/services'
 import { controllers } from './controllers/controllers'
