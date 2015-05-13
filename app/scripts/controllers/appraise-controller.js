@@ -23,6 +23,7 @@ class AppraiseController {
       appraised_date: new Date()
     };
     this.rewrite_appraise_signal = false;
+    this.add_appraise_success_signal = false;
     this.day_appraises_signal = true;
     this.week_appraises_signal = false;
     this.month_appraises_signal = false;
@@ -78,9 +79,12 @@ class AppraiseController {
       .then(resp => {
 
         if(!resp.data) {
+
           this.rewrite_appraise_signal = true;
+          this.add_appraise_success_signal = false;
         } else {
-          console.log('success');
+          this.add_appraise_success_signal = true;
+          this.rewrite_appraise_signal = false;
         }
       });
   }
@@ -98,10 +102,18 @@ class AppraiseController {
     };
     this.traineeService.update_appraise(current_appraise, this.trainee_id)
       .then(resp => {
-        console.log(resp.data);
+        if(resp.state === 200) {
+
+        this.rewrite_appraise_signal = false;
+        this.add_appraise_success_signal = true;
+        }
       })
   }
 
+  cancel_rewrite_appraise() {
+    this.rewrite_appraise_signal = false;
+    this.add_appraise_success_signal = false;
+  }
   click_day_appraises() {
 
     this.day_appraises_signal = true;
