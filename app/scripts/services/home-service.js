@@ -15,7 +15,11 @@ class HomeService {
   }
 
   add_appraises(trainees, appraise) {
-    return this.$http.put('api/trainees/appraises', {trainees: trainees, appraise: appraise});
+    var traineeList = trainees.filter(function (trainee) {
+      return trainee.checked === true;
+    });
+
+    return this.$http.put('api/trainees/appraises', {trainees: traineeList, appraise: appraise});
   }
 
 
