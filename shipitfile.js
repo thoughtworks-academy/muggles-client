@@ -13,7 +13,7 @@ module.exports = function (shipit) {
       branch: 'development'
     },
     staging: {
-      servers: 'root@120.25.68.232'
+      servers: 'root@120.25.232.68'
     }
   });
 };
