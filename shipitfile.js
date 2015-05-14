@@ -3,8 +3,8 @@ module.exports = function (shipit) {
 
   shipit.initConfig({
     default: {
-      workspace: '/tmp/github-monitor',
-      deployTo: '/tmp/deploy_to',
+      workspace: '/tmp/muggles-client',
+      deployTo: '/tmp/deploy_to/client',
       repositoryUrl: 'git@github.com:thoughtworks-academy/muggles-client.git',
       ignores: ['.git', 'node_modules', 'jspm_packages', '.idea', '.tmp', 'dist'],
       keepReleases: 2,
