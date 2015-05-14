@@ -9,8 +9,13 @@
       a.item
         label group3
   .ten.wide.column
-    span 选择日期:
-      input(type="date" placeholder="一/二/三/四" ng-model="vm.date" required)
+    .ui.grid
+      .six.wide.column
+        span 选择日期:
+          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required)
+      .ten.wide.column
+        .ui.red.message(ng-show="vm.is_add_error") {{vm.add_error}}
+        .ui.green.message(ng-show="vm.is_add_success") {{vm.add_success}}
     table.ui.table
       thead
         tr
