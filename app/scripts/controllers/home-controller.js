@@ -11,8 +11,13 @@ class HomeController {
     this.add_error = '';
     this.is_add_success = false;
     this.add_success = '';
+    this.check_all = false;
+
     homeService.get_trainee().then((trainees => {
       this.trainees = trainees.data.trainees;
+      this.trainees.forEach(function (trainee) {
+        trainee.checked = false;
+      });
     }));
   }
 
@@ -120,6 +125,27 @@ class HomeController {
         this.is_add_error = false;
       }, 1000);
     });
+  }
+  select_all(check_all) {
+    this.trainees.forEach(function (trainee) {
+      trainee.checked = check_all;
+    });
+  }
+
+  select_trainee(check) {
+    if(!check) {
+      this.check_all = check;
+    }else if (check) {
+      var is_all_checked = true;
+      this.trainees.forEach(function (trainee) {
+        if(!trainee.checked) {
+          is_all_checked = false;
+        }
+      });
+      this.check_all = is_all_checked;
+    }
+
+
   }
 
   show_message(result) {
