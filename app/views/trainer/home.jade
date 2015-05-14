@@ -56,5 +56,6 @@
             //td
             //  .ui.primary.button(ng-click="vm.add_appraise({type: trainee.appraise.type, level: trainee.appraise.level, comment: trainee.appraise.comment, group: trainee.current_group}, trainee)") 确认添加
             td
-              .ui.primary.button 查看以往评价
+              a(href='#/appraise/{{trainee._id}}')
+                span 查看以往评价
 
