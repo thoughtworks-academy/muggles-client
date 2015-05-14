@@ -29,8 +29,9 @@ gulp.task('less_compiler', function() {
     .pipe(gulp.dest('.tmp/styles'))
 });
 
-gulp.task('serve', ['less_compiler', 'jade_compiler'], function() {
+gulp.task('serve', ['less_compiler', 'jade_compiler']);
 
+gulp.task('watch', ['less_compiler', 'jade_compiler'], function() {
   gulp.watch([
     '**/*.jade',
     '**/*.less'

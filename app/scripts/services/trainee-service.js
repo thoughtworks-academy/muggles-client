@@ -21,10 +21,16 @@ class TraineeService {
       .then(result => result.data)
   }
 
-  has_appraised(appraise, trainee_id) {
+  update_appraise(appraise, trainee_id) {
 
    return this.http.post('/api/trainees/' + trainee_id + '/appraise', {appraise: appraise})
     .then(result => result.data);
+  }
+
+  create_appraise(appraise, trainee_id) {
+
+    return this.http.put('/api/trainees/' + trainee_id + '/appraise', appraise)
+      .then(result => result.data)
   }
 
   create_user(user) {
@@ -42,17 +48,6 @@ class TraineeService {
     }).then(result => result.data)
   }
 
-  create_appraise(appraise, trainee_id){
-
-    return this.http.put('/api/trainees/' + trainee_id + '/appraise', appraise)
-      .then(result => result.data)
-  }
-
-  add_appraise(appraise, trainee_id) {
-
-    return this.http.put('/api/trainees/' + trainee_id + '/appraise', appraise)
-      .then(result => result.data)
-  }
 }
 
 TraineeService.$inject = ['$http'];
