@@ -23,5 +23,11 @@
     "gulp-jade": "^1.0.0",
     "gulp-less": "^3.0.3",
     "gulp-load-plugins": "^0.10.0"
+  },
+  "dependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4",
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.7.0"
   }
 }

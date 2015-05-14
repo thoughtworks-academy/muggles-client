@@ -39,9 +39,6 @@ System.config({
     "npm:core-js@0.9.5": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:core-js@0.9.6": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
     "npm:moment@2.10.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     }

@@ -19,7 +19,8 @@
     span#date.center-display 选择日期：
       input(type="date" placeholder="2015-5-10" ng-model="vm.appraise.appraised_date" required)
     span.center-display 填写评语：
-      input(type="text" placeholder=" 表现不错..." ng-model="vm.appraise.comment")
+      .ui.icon.input
+        textarea(rows="2" cols="20" type="text" placeholder="请输入评语..." ng-model="vm.appraise.comment")
     .positive.ui.button(ng-click="vm.submit_appraise_information(vm.appraise)") 确认
 .ui.grid(ng-controller="appraiseController")
   .two.wide.column &nbsp;
