@@ -11,7 +11,7 @@ class IndexService {
   }
 
   logout() {
-    return this.http.delete('api/sessions').then(result => result);
+    return this.http.delete('api/sessions/destory').then(result => result);
   }
 }
 
