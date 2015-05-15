@@ -9,8 +9,13 @@
       a.item
         label group3
   .ten.wide.column
-    span 选择日期:
-      input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required)
+    .ui.grid
+      .six.wide.column
+        span 选择日期:
+          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required)
+      .ten.wide.column
+        .ui.red.message(ng-show="vm.is_add_error") {{vm.add_error}}
+        .ui.green.message(ng-show="vm.is_add_success") {{vm.add_success}}
     table.ui.table
       thead
         tr
@@ -22,6 +27,9 @@
             span 评语
           th
             span 添加
+          th
+            input(type="checkbox" name="all" ng-model="vm.check_all" ng-click="vm.select_all(vm.check_all)")
+            label 全选
       tbody
         tr(ng-repeat="trainee in vm.trainees")
           td
@@ -32,21 +40,9 @@
           td
             .ui.icon.input
               textarea(type="text" placeholder="请输入评语..." ng-model="trainee.appraise.comment")
-              i.inverted.search.icon
           td
             .ui.primary.button(ng-click="vm.add_date_appraise(trainee.appraise, trainee, vm.date)") 添加
+          td
+              input(type="checkbox" ng-model="trainee.checked" ng-click="vm.select_trainee(trainee.checked, trainees)")
 
     .ui.primary.button(ng-click="vm.add_date_appraises(vm.trainees, vm.date)") 全部添加
-   //ui.dimmer.modals.page.transition.visible.active#modal1
-  //  .ui.fullscreen.modal.transition.visible.active.scrolling
-  //    i.close.icon
-  //    .header 填写评价
-  //    .content
-  //      .ui.form
-  //        h4.ui.dividing.header 请填写该学生的评价理由
-  //        .field
-  //          label 评价详情
-  //          textarea
-  //    .actions
-  //      .ui.button 取消
-  //      .ui.green.button 确定
