@@ -6,7 +6,7 @@ class LoginService {
   }
 
   login(user) {
-    return this.http.post('api/trainers/login', {user: user}).
+    return this.http.post('api/sessions/login', {user: user}).
       then(result => result.data);
   }
 }
