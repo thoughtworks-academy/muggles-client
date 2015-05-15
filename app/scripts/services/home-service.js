@@ -22,6 +22,9 @@ class HomeService {
     return this.$http.put('api/trainees/appraises', {trainees: traineeList, appraise: appraise});
   }
 
+  is_appraised(trainee, appraise) {
+    return this.$http.post('api/trainees/appraise', {trainee: trainee, appraise: appraise}).then(result => result);
+  }
 
 }
 

@@ -3,7 +3,8 @@ class HomeController {
 
   constructor(homeService, $location, $timeout) {
     this.types = ['日', '周', '月', '季'];
-    this.levels = ['A', 'B', 'C', 'D', 'X'];
+    this.levels = [{name: 'A', value: "A"}, {name: 'B', value: 'B'}, {name: 'C', value: 'default' },{name: 'D', value: 'D'}, {name: 'X', value: 'X'}];
+    //this.levels = ['A', 'B', 'C', 'D', 'X'];
     this.homeService = homeService;
     this.date = new Date();
     this.location = $location;
@@ -17,6 +18,7 @@ class HomeController {
       this.trainees = trainees.data.trainees;
       this.trainees.forEach(function (trainee) {
         trainee.checked = false;
+        trainee.disable = false;
       });
     }));
   }
@@ -127,8 +129,19 @@ class HomeController {
     });
   }
   select_all(check_all) {
+    var appraise = {appraised_date: this.date, type: '日'};
+    var self = this;
     this.trainees.forEach(function (trainee) {
-      trainee.checked = check_all;
+      self.homeService.is_appraised(trainee, appraise).then(result => {
+        console.log(result);
+        if(result.data) {
+          trainee.tip = result.message;
+          trainee.disable = true;
+        }
+        trainee.disable = true;
+
+        trainee.checked = check_all;
+      });
     });
   }
 
@@ -144,8 +157,6 @@ class HomeController {
       });
       this.check_all = is_all_checked;
     }
-
-
   }
 
   show_message(result) {
