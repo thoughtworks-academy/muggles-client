@@ -18,8 +18,7 @@ html
     .ui.grid
       .two.wide.column
       .eleven.wide.column
-        span(ng-show="vm.show_user_message_signal") Hi,
-        span.userName(ng-show="vm.show_user_name_signal") {{vm.trainerName}}
+        span.userName(ng-show="vm.show_user_name_signal" ng-bind="vm.trainerName")
         span 欢迎来到 Muggles 考评系统
       .three.wide.column
         a(ng-click="vm.logout()" ng-show="vm.show_logout_signal")#logout 注销
