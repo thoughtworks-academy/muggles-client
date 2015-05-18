@@ -9,7 +9,7 @@ class IndexController {
 
     indexService.get_session().then((resp => {
 
-      if (resp.data === null) {
+      if (resp.data === null || resp.data === undefined) {
         this.show_user_message_signal = false;
         this.show_logout_signal = false;
       } else {
