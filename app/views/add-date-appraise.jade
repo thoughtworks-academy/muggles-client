@@ -5,15 +5,11 @@
     .ui.wide.vertical.menu
       a.active.item
         label group1
-      a.item
-        label group2
-      a.item
-        label group3
   .ten.wide.column
     .ui.grid
       .six.wide.column
         span 选择日期:
-          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required)
+          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required ng-change="vm.date_change(vm.check_all)")
         i.asterisk.icon.red
       .ten.wide.column
         .ui.red.message(ng-show="vm.is_add_error") {{vm.add_error}}
@@ -30,7 +26,7 @@
           th
             span 添加
           th
-            input(type="checkbox" name="all" ng-model="vm.check_all" ng-click="vm.select_all(vm.check_all)")
+            input(type="checkbox" name="all" ng-model="vm.check_all" ng-click="vm.select_all(vm.check_all, vm.trainees)")
             label 全选
       tbody
         tr(ng-repeat="trainee in vm.trainees")
@@ -46,6 +42,7 @@
           td
             .ui.primary.button(ng-click="vm.add_date_appraise(trainee.appraise, trainee, vm.date)") 添加
           td
-              input(type="checkbox" ng-model="trainee.checked" ng-click="vm.select_trainee(trainee.checked, trainees)")
-
+              input(type="checkbox" ng-model="trainee.checked" ng-disabled="trainee.disable" ng-click="vm.select_trainee(trainee.checked, trainees)")
+              span {{trainee.tip}}
     .ui.primary.button(ng-click="vm.add_date_appraises(vm.trainees, vm.date)") 全部添加
+
