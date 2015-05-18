@@ -16,12 +16,9 @@ class AppraiseController {
     this.traineeService = traineeService;
     this.dateService = dateService;
 
-    this.types = ['日', '周', '月', '季'];
+    this.types = [DAY, WEEK, MONTH, SEASON];
     this.levels = ['A', 'B', 'C', 'D', 'X'];
-    this.appraise = {
-      appraised_date: new Date()
-    };
-
+ 
     this.day_appraises_signal = true;
     this.week_appraises_signal = false;
     this.month_appraises_signal = false;
@@ -40,6 +37,12 @@ class AppraiseController {
 
         this.trainee_name = resp.data.username;
         this.groups = resp.data.groups;
+        this.appraise = {
+          group: this.groups[0],
+          level: 'C',
+          type: DAY,
+          appraised_date: new Date()
+        };
 
         appraises = resp.data.appraises;
         this.day_appraises = appraises.filter(appraise => appraise.type === DAY);
