@@ -40,13 +40,23 @@ class HomeController {
     appraise.appraised_date = date;
     appraise.type = '日';
 
+    var checked_number = 0;
     var self = this;
-    trainees.forEach(function (trainee) {
-      if(!trainee.appraise) {
+    for(var i = 0; i < trainees.length; i++) {
+      if(!trainees[i].appraise) {
         var result = {data: {message: "批量添加评价失败，请输入完整评价信息"}};
         self.show_message(result);
+        return;
       }
-    });
+      if(trainees[i].checked){
+        checked_number++;
+      }
+    }
+    if(!checked_number) {
+      var result = {data: {message: "批量添加评价失败，请输入勾选要评价的学生"}};
+      self.show_message(result);
+      return;
+    }
 
     this.homeService.add_appraises(trainees, appraise).then(result => {
       this.show_message(result);
@@ -147,14 +157,19 @@ class HomeController {
       self.homeService.is_appraised(trainee, appraise).then(result => {
         console.log(result);
 
-        if(result.data) {
-          trainee.tip = result.message;
+        if(result.data.data) {
+          trainee.tip = result.data.message;
           trainee.disable = true;
+          trainee.checked = false;
+        }else{
+          trainee.checked = check_all;
+          trainee.tip = '';
+          trainee.disable = false;
         }
-
-        trainee.checked = check_all;
+        console.log(trainee);
       });
     });
+    console.log(this.trainees);
   }
 
   select_trainee(check) {
@@ -191,6 +206,9 @@ class HomeController {
     }
   }
 
+  date_change() {
+    this.select_all(false);
+  }
   type_change(type) {
     switch (type) {
       case '日':

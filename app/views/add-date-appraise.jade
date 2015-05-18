@@ -12,7 +12,7 @@
     .ui.grid
       .six.wide.column
         span 选择日期:
-          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required)
+          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required ng-change="vm.date_change()")
         i.asterisk.icon.red
       .ten.wide.column
         .ui.red.message(ng-show="vm.is_add_error") {{vm.add_error}}
@@ -45,6 +45,6 @@
           td
             .ui.primary.button(ng-click="vm.add_date_appraise(trainee.appraise, trainee, vm.date)") 添加
           td
-              input(type="checkbox" ng-model="trainee.checked" ng-click="vm.select_trainee(trainee.checked, trainees)")
-
+              input(type="checkbox" ng-model="trainee.checked" ng-disabled="{{trainee.disable}}" ng-click="vm.select_trainee(trainee.checked, trainees)")
+              span {{trainee.tip}}
     .ui.primary.button(ng-click="vm.add_date_appraises(vm.trainees, vm.date)") 全部添加
