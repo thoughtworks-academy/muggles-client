@@ -206,7 +206,7 @@ class HomeController {
     }
   }
 
-  date_change() {
+  date_change(check_all) {
     this.select_all(false);
   }
   type_change(type) {
