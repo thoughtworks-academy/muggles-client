@@ -18,7 +18,7 @@ class AppraiseController {
 
     this.types = [DAY, WEEK, MONTH, SEASON];
     this.levels = ['A', 'B', 'C', 'D', 'X'];
- 
+
     this.day_appraises_signal = true;
     this.week_appraises_signal = false;
     this.month_appraises_signal = false;
