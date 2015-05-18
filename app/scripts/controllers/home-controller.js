@@ -152,25 +152,25 @@ class HomeController {
     });
   }
   select_all(check_all) {
+    console.log(check_all);
+
     var appraise = {appraised_date: this.date, type: '日'};
     var self = this;
     this.trainees.forEach(function (trainee) {
       self.homeService.is_appraised(trainee, appraise).then(result => {
-        console.log(result);
 
         if(result.data.data) {
           trainee.tip = result.data.message;
           trainee.disable = true;
           trainee.checked = false;
         }else{
+
           trainee.checked = check_all;
           trainee.tip = '';
           trainee.disable = false;
         }
-        console.log(trainee);
       });
     });
-    console.log(this.trainees);
   }
 
   select_trainee(check) {
