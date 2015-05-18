@@ -9,10 +9,9 @@
   .sixteen.wide.column
     span 组别：
       select.ui.dropdown(ng-model="vm.appraise.group" ng-options="group.name for group in vm.groups" required)
-        //option(value="") 请选择...
+        option(value="") 请选择...
     span 评价类型：
       select.ui.dropdown(ng-model="vm.appraise.type" ng-options="type for type in vm.types" required)
-        //option(value="") 请选择...
     span 评价等级：
       select.ui.dropdown(ng-model="vm.appraise.level" ng-options="level for level in vm.levels" required)
     span#date.center-display 选择日期：

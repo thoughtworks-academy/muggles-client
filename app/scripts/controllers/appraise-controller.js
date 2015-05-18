@@ -31,18 +31,18 @@ class AppraiseController {
 
     this.rewrite_appraise_signal = false;
     this.add_appraise_success_signal = false;
+    this.appraise = {
+      level: 'C',
+      type: DAY,
+      appraised_date: new Date()
+    };
+    
     let appraises;
     this.traineeService.find_trainee_by_id(this.trainee_id)
       .then(resp => {
 
         this.trainee_name = resp.data.username;
         this.groups = resp.data.groups;
-        this.appraise = {
-          group: this.groups[0],
-          level: 'C',
-          type: DAY,
-          appraised_date: new Date()
-        };
 
         appraises = resp.data.appraises;
         this.day_appraises = appraises.filter(appraise => appraise.type === DAY);
