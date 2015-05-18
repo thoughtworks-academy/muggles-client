@@ -36,7 +36,7 @@ class AppraiseController {
       type: DAY,
       appraised_date: new Date()
     };
-    
+
     let appraises;
     this.traineeService.find_trainee_by_id(this.trainee_id)
       .then(resp => {
