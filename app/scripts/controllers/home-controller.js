@@ -151,17 +151,25 @@ class HomeController {
       }, 1000);
     });
   }
-  select_all(check_all) {
-    console.log(check_all);
+  select_all(check_all, trainees) {
 
+    if(!check_all) {
+      trainees.forEach(function (trainee) {
+        trainee.checked = check_all;
+        trainee.tip = '';
+        trainee.disable = false;
+      });
+
+      return;
+    }
     var appraise = {appraised_date: this.date, type: '日'};
     var self = this;
-    this.trainees.forEach(function (trainee) {
+    trainees.forEach(function (trainee) {
       self.homeService.is_appraised(trainee, appraise).then(result => {
 
         if(result.data.data) {
           trainee.tip = result.data.message;
-          trainee.disable = true;
+          trainee.disable = 'disabled';
           trainee.checked = false;
         }else{
 
