@@ -18,6 +18,7 @@ class HomeController {
       this.trainees.forEach(function (trainee) {
         trainee.checked = false;
         trainee.disable = false;
+        trainee.appraise = {level: 'C'};
       });
     }));
   }
