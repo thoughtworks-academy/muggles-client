@@ -53,7 +53,7 @@ angular
         controllerAs: 'vm'
       }).
       otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
     //$locationProvider.html5Mode(true);
   }]);

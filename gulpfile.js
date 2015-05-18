@@ -6,8 +6,6 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-var connect = require('gulp-connect');
-
 gulp.task('index_jade_compiler', function() {
 
   return gulp.src('app/index.jade')
@@ -27,6 +25,14 @@ gulp.task('less_compiler', function() {
   return gulp.src('app/styles/**/*.less')
     .pipe($.less())
     .pipe(gulp.dest('.tmp/styles'))
+});
+
+gulp.task('test', function () {
+  return gulp.src('tests/**/*.js')
+    .pipe($.sourcemaps.init())
+    .pipe($.babel())
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist/tests'));
 });
 
 gulp.task('serve', ['less_compiler', 'jade_compiler']);

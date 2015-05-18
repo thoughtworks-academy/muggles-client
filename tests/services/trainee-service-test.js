@@ -1,8 +1,5 @@
 'use strict';
-
-import 'angular-mocks'
-import 'mocha'
-import { helper } from '../helper'
+import  helper from '../helper'
 
 var expect = helper.expect;
 var root_url = helper.root_url;
@@ -11,7 +8,7 @@ describe('traineeService', function () {
 
   var http, trainee_service;
 
-  beforeEach(module('services'));
+  beforeEach(angular.mock.module('services'));
   beforeEach(inject(function($http, traineeService) {
 
     http = $http;
@@ -21,7 +18,6 @@ describe('traineeService', function () {
   it('should have http get request and the response should be right', function() {
 
     var response = {};
-    var status;
     var email = '915375045@qq.com';
 
     $httpBackend.when('GET', root_url + '/api/trainees/verification/' + email).respond(200, {

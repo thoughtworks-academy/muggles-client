@@ -16,11 +16,8 @@ class AppraiseController {
     this.traineeService = traineeService;
     this.dateService = dateService;
 
-    this.types = ['日', '周', '月', '季'];
+    this.types = [DAY, WEEK, MONTH, SEASON];
     this.levels = ['A', 'B', 'C', 'D', 'X'];
-    this.appraise = {
-      appraised_date: new Date()
-    };
 
     this.day_appraises_signal = true;
     this.week_appraises_signal = false;
@@ -34,6 +31,12 @@ class AppraiseController {
 
     this.rewrite_appraise_signal = false;
     this.add_appraise_success_signal = false;
+    this.appraise = {
+      level: 'C',
+      type: DAY,
+      appraised_date: new Date()
+    };
+
     let appraises;
     this.traineeService.find_trainee_by_id(this.trainee_id)
       .then(resp => {
