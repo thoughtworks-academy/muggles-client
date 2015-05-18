@@ -9,7 +9,7 @@
     .ui.grid
       .six.wide.column
         span 选择日期:
-          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required ng-change="vm.date_change(vm.check_all)")
+          input(type="date" placeholder="yyyy-MM-dd" ng-model="vm.date" required ng-change="vm.date_change(vm.check_all, vm.trainees)")
         i.asterisk.icon.red
       .ten.wide.column
         .ui.red.message(ng-show="vm.is_add_error") {{vm.add_error}}

@@ -215,8 +215,8 @@ class HomeController {
     }
   }
 
-  date_change(check_all) {
-    this.select_all(false);
+  date_change(check_all, trainees) {
+    this.select_all(false, trainees);
   }
   type_change(type) {
     switch (type) {
