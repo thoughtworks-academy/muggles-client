@@ -17,24 +17,38 @@ class HomeController {
       this.trainees = trainees.data.trainees;
       this.trainees.forEach(function (trainee) {
         trainee.checked = false;
+        trainee.disable = false;
       });
     }));
   }
 
   add_date_appraise(appraise, trainee, date) {
-    appraise.appraised_date = date;
-    appraise.type = '日';
-    this.homeService.add_appraise(appraise, trainee).then(result => {
+    if(appraise) {
+      appraise.appraised_date = date;
+      appraise.type = '日';
+      this.homeService.add_appraise(appraise, trainee).then(result => {
+        this.show_message(result);
+      });
+    }else {
+      var result = {data: {message: "添加评价失败，请输入完整评价信息"}};
       this.show_message(result);
-    });
+    }
   }
 
   add_date_appraises(trainees, date) {
     var appraise = {};
     appraise.appraised_date = date;
     appraise.type = '日';
+
+    var self = this;
+    trainees.forEach(function (trainee) {
+      if(!trainee.appraise) {
+        var result = {data: {message: "批量添加评价失败，请输入完整评价信息"}};
+        self.show_message(result);
+      }
+    });
+
     this.homeService.add_appraises(trainees, appraise).then(result => {
-      console.log(result);
       this.show_message(result);
     });
   }
@@ -127,8 +141,19 @@ class HomeController {
     });
   }
   select_all(check_all) {
+    var appraise = {appraised_date: this.date, type: '日'};
+    var self = this;
     this.trainees.forEach(function (trainee) {
-      trainee.checked = check_all;
+      self.homeService.is_appraised(trainee, appraise).then(result => {
+        console.log(result);
+
+        if(result.data) {
+          trainee.tip = result.message;
+          trainee.disable = true;
+        }
+
+        trainee.checked = check_all;
+      });
     });
   }
 
@@ -144,8 +169,6 @@ class HomeController {
       });
       this.check_all = is_all_checked;
     }
-
-
   }
 
   show_message(result) {
