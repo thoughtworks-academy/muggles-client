@@ -61,7 +61,10 @@ class HomeController {
 
     this.homeService.add_appraises(trainees, appraise).then(result => {
       this.show_message(result);
+      this.select_all(false, trainees);
+      this.check_all = false;
     });
+
   }
 
   add_week_appraise(appraise, trainee, date) {
